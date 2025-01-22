@@ -1,0 +1,404 @@
+{
+  "slug": "Sickozell",
+  "name": "Sickozell",
+  "version": "0.3",
+  "license": "GPL-3.0-or-later",
+  "brand": "Sickozell",
+  "author": "Sickozell",
+  "authorEmail": "sickozell@sickozell.org",
+  "authorUrl": "http://www.sickozell.org",
+  "pluginUrl": "https://github.com/sickozell/SickoCV",
+  "manualUrl": "https://github.com/sickozell/SickoCV/blob/main/README.md",
+  "sourceUrl": "https://github.com/sickozell/SickoCV",
+  "donateUrl": "https://paypal.me/sickozell",
+  "changelogUrl": "https://github.com/sickozell/SickoCV/blob/main/changelog.md",
+  "modules": [
+    {
+      "slug": "Adder8",
+      "name": "adder8",
+      "description": "8 adder and subtractor",
+      "tags": [
+        "Mixer",
+        "Utility"
+      ]
+    },
+    {
+      "slug": "Bgates",
+      "name": "bGates",
+      "description": "8 Buffered gates and triggers",
+      "tags": [
+        "Logic"
+      ]
+    },
+    {
+      "slug": "Blender",
+      "name": "blender",
+      "description": "Stereo crossfade mixer with double modulation",
+      "tags": [
+        "Mixer",
+        "Polyphonic"
+      ]
+    },
+    {
+      "slug": "Blender8",
+      "name": "blender8",
+      "description": "8 single crossfade mixers",
+      "tags": [
+        "Mixer"
+      ]
+    },
+    {
+      "slug": "BtogglerSt",
+      "name": "bToggler",
+      "description": "Buffered stereo signal toggle switch router, with VCA and ASR envelope generator",
+      "tags": [
+        "Logic",
+        "Envelope generator",
+        "Voltage-controlled amplifier",
+        "Polyphonic"
+      ]
+    },
+    {
+      "slug": "BtogglerStCompact",
+      "name": "bToggler Compact",
+      "description": "Buffered stereo signal toggle switch router, with VCA and ASR envelope generator, in a compact form factor",
+      "tags": [
+        "Logic",
+        "Envelope generator",
+        "Voltage-controlled amplifier",
+        "Polyphonic"
+      ]
+    },
+    {
+      "slug": "Btoggler",
+      "name": "bToggler8",
+      "description": "8 buffered toggle switch signal router",
+      "tags": [
+        "Logic"
+      ]
+    },
+    {
+      "slug": "Calcs",
+      "name": "calcs",
+      "description": "Calculates sums, differences, multiplications, divisions and averages of 3 CV inputs",
+      "tags": [
+        "Utility"
+      ]
+    },
+    {
+      "slug": "Clocker2",
+      "name": "clocker2",
+      "description": "Clock generator with 6 dividers/multipliers",
+      "tags": [
+        "Clock generator",
+        "Clock modulator"
+      ]
+    },
+    {
+      "slug": "CVrouter",
+      "name": "cvRouter",
+      "description": "1>2 voltage controlled switch",
+      "tags": [
+        "Switch",
+        "Polyphonic"
+      ]
+    },
+    {
+      "slug": "CVswitcher",
+      "name": "cvSwitcher",
+      "description": "2>1 voltage controlled switch",
+      "tags": [
+        "Switch",
+        "Polyphonic"
+      ]
+    },
+    {
+      "slug": "Drummer",
+      "name": "drummer",
+      "description": "Accent and choke utility for drum modules lacking these features",
+      "tags": [
+        "Utility",
+        "Drum",
+        "Dual"
+      ]
+    },
+    {
+      "slug": "Drummer4",
+      "name": "drummer4",
+      "description": "4 channel accent and choke utility for drum modules lacking this feature",
+      "tags": [
+        "Utility",
+        "Drum",
+        "Quad"
+      ]
+    },
+    {
+      "slug": "Drummer4Plus",
+      "name": "drummer4+",
+      "description": "4 channel accent and choke utility for drum modules lacking this feature",
+      "tags": [
+        "Utility",
+        "Drum",
+        "Quad"
+      ]
+    },
+    {
+      "slug": "EnverL",
+      "name": "enver lite",
+      "description": "Envelope generator with stereo VCA",
+      "tags": [
+        "Envelope generator",
+        "Voltage-controlled amplifier"
+      ]
+    },
+    {
+      "slug": "HolderL",
+      "name": "holder lite",
+      "description": "Sample & Hold or Track & Hold with noise generator, probability and range",
+      "tags": [
+        "Sample and hold",
+        "Noise"
+      ]
+    },
+    {
+      "slug": "HolderCompactL",
+      "name": "holder Compact lite",
+      "description": "Sample & Hold or Track & Hold with noise generator, probability and range in a compact form factor",
+      "tags": [
+        "Sample and hold",
+        "Noise"
+      ]
+    },
+    {
+      "slug": "Holder8L",
+      "name": "holder8 lite",
+      "description": "8 Sample & Hold or Track & Hold with noise generator, probability and range",
+      "tags": [
+        "Sample and hold",
+        "Noise",
+        "Quad"
+      ]
+    },
+    {
+      "slug": "Modulator",
+      "name": "modulator",
+      "description": "triangle/ramp LFOs with sync feature",
+      "tags": [
+        "Low-frequency oscillator"
+      ]
+    },
+    {
+      "slug": "Modulator7",
+      "name": "modulator7",
+      "description": "7 triangle/ramp LFOs with sync feature",
+      "tags": [
+        "Low-frequency oscillator",
+        "Polyphonic"
+      ]
+    },
+    {
+      "slug": "Modulator7Compact",
+      "name": "modulator7 Compact",
+      "description": "7 unipolar triangle LFOs",
+      "tags": [
+        "Low-frequency oscillator"
+      ]
+    },
+    {
+      "slug": "MultiSwitcherL",
+      "name": "multiSwitcher lite",
+      "description": "Stereo 8>1 switch",
+      "tags": [
+        "Switch"
+      ]
+    },
+      {
+      "slug": "MultiSwitcherML",
+      "name": "multiSwitcher mono lite",
+      "description": "Mono 8>1 switch",
+      "tags": [
+        "Switch"
+      ]
+    },
+    {
+      "slug": "MultiRouterL",
+      "name": "multiRouter lite",
+      "description": "Stereo 1>8 router",
+      "tags": [
+        "Switch"
+      ]
+    },
+    {
+      "slug": "MultiRouterML",
+      "name": "multiRouter mono lite",
+      "description": "Mono 1>8 router",
+      "tags": [
+        "Switch"
+      ]
+    },
+    {
+      "slug": "RandLoops",
+      "name": "randLoops",
+      "description": "looped random voltage sequencer inspired by Turing Machine",
+      "tags": [
+        "Sequencer"
+      ]
+    },
+    {
+      "slug": "SickoCrosserL",
+      "name": "sickoCrosser lite",
+      "description": "multi input crossfader",
+      "tags": [
+        "Mixer"
+      ]
+    },
+    {
+      "slug": "Shifter",
+      "name": "shifter",
+      "description": "64 selectable stages shift register",
+      "tags": [
+        "Sample and hold",
+        "Utility"
+      ]
+    },
+    {
+      "slug": "SickoAmp",
+      "name": "sickoAmp",
+      "description": "Stereo VCA up to 200% with limiter",
+      "tags": [
+        "Voltage-controlled amplifier",
+        "Polyphonic"
+      ]
+    },
+    {
+      "slug": "SickoCrosser4L",
+      "name": "sickoCrosser4 lite",
+      "description": "4 multi input crossfader",
+      "tags": [
+        "Mixer"
+      ]
+    },
+    {
+      "slug": "SickoLooper1",
+      "name": "sickoLooper1",
+      "description": "1 track looper with builtin clock generator, click and meter",
+      "tags": [
+        "Sampler"
+      ]
+    },
+    {
+      "slug": "SickoLooper1Exp",
+      "name": "sickoLooperX",
+      "description": "1 track Looper / Expander for sickoLooper1",
+      "tags": [
+        "Sampler",
+        "Expander"
+      ]
+    },
+    {
+      "slug": "SickoLooper3",
+      "name": "sickoLooper3",
+      "description": "3 track looper with builtin clock generator, click and meter",
+      "tags": [
+        "Sampler"
+      ]
+    },
+    {
+      "slug": "SickoQuantL",
+      "name": "sickoQuant lite",
+      "description": "Quantizer with scales and presets",
+      "tags": [
+        "Quantizer"
+      ]
+    },
+    {
+      "slug": "SickoQuant4L",
+      "name": "sickoQuant4 lite",
+      "description": "Four channels quantizer with scales and presets",
+      "tags": [
+        "Quantizer"
+      ]
+    },
+    {
+      "slug": "SickoSampler2",
+      "name": "sickoSampler2",
+      "description": "Sample Player and Recorder",
+      "tags": [
+        "Sampler",
+        "Polyphonic"
+      ]
+    },
+    {
+      "slug": "SimpleSeq4",
+      "name": "simpleSeq4",
+      "description": "4 step sequencer with direction and range setting (ss4)",
+      "tags": [
+        "Sequencer"
+      ]
+    },
+
+    {
+      "slug": "SlewerL",
+      "name": "slewer lite",
+      "description": "Slew Limiter",
+      "tags": [
+        "Slew limiter",
+        "Low-frequency oscillator"
+      ]
+    },
+
+    {
+      "slug": "Switcher",
+      "name": "switcher",
+      "description": "2>1 switch, 1>2 router, 2 signal swapper, mute, flip flop, toggle gate",
+      "tags": [
+        "Switch",
+        "Utility",
+        "Polyphonic"
+      ]
+    },
+    {
+      "slug": "SwitcherSt",
+      "name": "switcherSt",
+      "description": "Stereo 2>1 switch, 1>2 router, 2 signal swapper, mute, flip flop, toggle gate",
+      "tags": [
+        "Switch",
+        "Utility",
+        "Polyphonic"
+      ]
+    },
+    {
+      "slug": "Switcher8",
+      "name": "switcher8",
+      "description": "Eight 2>1 switch, 1>2 router, 2 signal swapper, mute, flip flop, toggle gate",
+      "tags": [
+        "Switch",
+        "Utility",
+        "Polyphonic",
+        "Quad"
+      ]
+    },
+    {
+      "slug": "TogglerCompact",
+      "name": "toggler Compact",
+      "description": "Stereo signal toggle switch router, with VCA and ASR envelope generator, in a compact form factor",
+      "tags": [
+        "Logic",
+        "Envelope generator",
+        "Voltage-controlled amplifier",
+        "Polyphonic"
+      ]
+    },
+    {
+      "slug": "TogglerMM",
+      "name": "toggler",
+      "description": "Stereo signal toggle switch router, with VCA and ASR envelope generator",
+      "tags": [
+        "Logic",
+        "Envelope generator",
+        "Voltage-controlled amplifier",
+        "Polyphonic"
+      ]
+    }
+  ]
+}
