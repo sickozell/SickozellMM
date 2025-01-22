@@ -1,6 +1,6 @@
 # **Sickozell plugin for 4ms metamodule**  
 
-SickozellMM is a 4ms metamodule porting of SickoCV plugin for VCV rack.
+SickozellMM is a 4ms metamodule port of SickoCV plugin for VCV rack.
 
 It is built to work with metamodule firmware v2.0 (not tested with previous)
 
