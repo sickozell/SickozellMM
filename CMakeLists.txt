@@ -2,10 +2,13 @@ cmake_minimum_required(VERSION 3.24)
 
 ########################################################################################
 # this line is used to build hardware plugin (uncomment the next one)
-#include(${CMAKE_CURRENT_LIST_DIR}/../../metamodule/metamodule-plugin-sdk/plugin.cmake)
 
+include(${CMAKE_CURRENT_LIST_DIR}/../../metamodule/metamodule-plugin-sdk/plugin.cmake)
+
+########################################################################################
 # this line below (INSTEAD OF PREVIOUS) is used to build plugin in the simulator
-include(${METAMODULE_SDK_DIR}/plugin.cmake)
+
+#include(${METAMODULE_SDK_DIR}/plugin.cmake)
 
 ########################################################################################
 
