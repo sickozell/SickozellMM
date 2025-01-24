@@ -1,16 +1,16 @@
-### 0.3
-added following modules
-sickoLooper1
-sickoLooperX
-sickoLooper3
+### v0.3
+added following modules:
+sickoLooper1 (no load/save, no click)
+sickoLooperX (no load/save)
+sickoLooper3 (no load/save, no click)
 blender
 blender8
 fixed missing font for sickoQuant and sickoQuant4
 
-### 0.2
-added sickoSampler2 with no load/save functionalities
+### v0.2
+added sickoSampler2 with no load/save and click functionalities
 
-### 0.1
+### v0.1
 
 Modules list:
 
