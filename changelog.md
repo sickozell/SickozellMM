@@ -1,5 +1,5 @@
 ### v0.4
-added following modules:
+added following modules:  
 stepSeq  
 trigSeq  
 
