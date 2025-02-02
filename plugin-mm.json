@@ -16,11 +16,11 @@
 		{
 			"slug": "Blender",
 			"name": "blender"
-		  },
-		  {
+		},
+		{
 			"slug": "Blender8",
 			"name": "blender8"
-		  },
+		},
 		{
 			"slug": "BtogglerSt",
 			"name": "bToggler"
@@ -32,11 +32,19 @@
 		{
 			"slug": "Btoggler",
 			"name": "bToggler8"
-		}
+		},
+		/*{
+			"slug": "BtogglerPlus",
+			"name": "bToggler8+",
+		},*/
 		{
 			"slug": "Calcs",
 			"name": "calcs"
 		},
+		/*{
+			"slug": "Clocker",
+			"name": "clocker"
+		},*/
 		{
 			"slug": "Clocker2",
 			"name": "clocker2"
@@ -61,6 +69,18 @@
 			"slug": "Drummer4Plus",
 			"name": "drummer4+"
 		},
+		/*{
+			"slug": "DrumPlayer",
+			"name": "drumPlayer"
+		},
+		{
+			"slug": "DrumPlayerPlus",
+			"name": "drumPlayer+"
+		},
+		{
+			"slug": "DrumPlayerXtra",
+			"name": "drumPlayerXtra"
+		},*/
 		{
 			"slug": "EnverL",
 			"name": "enver lite"
@@ -77,6 +97,10 @@
 			"slug": "Holder8L",
 			"name": "holder8 lite"
 		},
+		/*{
+			"slug": "KeySampler",
+			"name": "keySampler"
+		},*/
 		{
 			"slug": "Modulator",
 			"name": "modulator"
@@ -114,8 +138,8 @@
 			"name": "shifter"
 		},
 		{
-			"slug": "SickoAmp",
-			"name": "sickoAmp"
+			"slug": "SickoAmpL",
+			"name": "sickoAmp lite"
 		},
 		{
 			"slug": "SickoCrosserL",
@@ -133,10 +157,14 @@
 			"slug": "SickoLooper1Exp",
 			"name": "sickoLooperX"
 		},
-		{
+		/*{
 			"slug": "SickoLooper3",
 			"name": "sickoLooper3"
-		},
+		},*/
+		/*{
+			"slug": "SickoPlayer",
+			"name": "sickoPlayer"
+		},*/
 		{
 			"slug": "SickoQuantL",
 			"name": "sickoQuant lite"
@@ -145,7 +173,14 @@
 			"slug": "SickoQuant4L",
 			"name": "sickoQuant4 lite"
 		},
-		
+		/*{
+			"slug": "SickoSampler",
+			"name": "sickoSampler"
+		},*/
+		{
+			"slug": "SickoSampler2",
+			"name": "sickoSampler2"
+		},
 		{
 			"slug": "SimpleSeq4",
 			"name": "simpleSeq4"
@@ -154,6 +189,14 @@
 			"slug": "SlewerL",
 			"name": "slewer lite"
 		},
+		{
+			"slug": "StepSeq",
+			"name": "stepSeq",
+		},
+		/*{
+			"slug": "StepSeqPlus",
+			"name": "stepSeq+",
+		},*/
 		{
 			"slug": "Switcher",
 			"name": "switcher"
@@ -170,9 +213,26 @@
 			"slug": "TogglerCompact",
 			"name": "toggler Compact"
 		},
+		/*{
+			"slug": "Toggler",
+			"name": "toggler"
+		},*/
 		{
 			"slug": "TogglerMM",
-			"name": "toggler"
-		}
+			"name": "togglerMM"
+		},
+		{
+			"slug": "TrigSeq",
+			"name": "trigSeq",
+		}/*,
+		{
+			"slug": "TrigSeqPlus",
+			"name": "trigSeq+",
+		},
+		{
+			"slug": "WaveTabler",
+			"name": "waveTabler",
+		}*/
+		
 	]
 }

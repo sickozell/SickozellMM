@@ -10,8 +10,6 @@ extern Plugin* pluginInstance;
 
 // Declare each Model, defined in each module source file
 // extern Model* modelMyModule;
-
-
 extern Model* modelAdder8;
 extern Model* modelBgates;
 extern Model* modelBlender;
@@ -19,40 +17,71 @@ extern Model* modelBlender8;
 extern Model* modelBtogglerSt;
 extern Model* modelBtogglerStCompact;
 extern Model* modelBtoggler;
+//extern Model* modelBtogglerPlus;
 extern Model* modelCalcs;
+//extern Model* modelClocker;
 extern Model* modelClocker2;
 extern Model* modelCVrouter;
 extern Model* modelCVswitcher;
 extern Model* modelDrummer;
 extern Model* modelDrummer4;
 extern Model* modelDrummer4Plus;
-extern Model* modelEnverL;
-extern Model* modelHolderL;
-extern Model* modelHolderCompactL;
-extern Model* modelHolder8L;
+//extern Model* modelDrumPlayer;
+//extern Model* modelDrumPlayerPlus;
+//extern Model* modelDrumPlayerXtra;
+//extern Model* modelEnver;
+//extern Model* modelHolder;
+//extern Model* modelHolderCompact;
+//extern Model* modelHolder8;
+extern Model* modelEnverL; // ---- extra
+extern Model* modelHolderL; // ---- extra
+extern Model* modelHolderCompactL; // ---- extra
+extern Model* modelHolder8L; // ---- extra
+//extern Model* modelKeySampler;
 extern Model* modelModulator;
 extern Model* modelModulator7;
 extern Model* modelModulator7Compact;
-extern Model* modelMultiSwitcherL;
-extern Model* modelMultiRouterL;
-extern Model* modelMultiSwitcherML;
-extern Model* modelMultiRouterML;
-extern Model* modelRandLoops;
+//extern Model* modelMultiSwitcher;
+//extern Model* modelMultiRouter;
+extern Model* modelMultiSwitcherL; // ---- extra
+extern Model* modelMultiSwitcherML; // ---- extra
+extern Model* modelMultiRouterL; // ---- extra
+extern Model* modelMultiRouterML; // ---- extra
+//extern Model* modelParking;
+//extern Model* modelPolyMuter8;
+//extern Model* modelPolyMuter8Plus;
+//extern Model* modelPolyMuter16;
+//extern Model* modelPolyMuter16Plus;
+extern Model* modelRandLoops; // ---- extra
 extern Model* modelShifter;
-extern Model* modelSickoAmp;
-extern Model* modelSickoCrosserL;
-extern Model* modelSickoCrosser4L;
+//extern Model* modelSickoAmp;
+//extern Model* modelSickoCrosser;
+//extern Model* modelSickoCrosser4;
+extern Model* modelSickoAmpL; // ---- extra
+extern Model* modelSickoCrosserL; // ---- extra
+extern Model* modelSickoCrosser4L; // ---- extra
 extern Model* modelSickoLooper1;
 extern Model* modelSickoLooper1Exp;
-extern Model* modelSickoLooper3;
-extern Model* modelSickoQuantL;
-extern Model* modelSickoQuant4L;
+//extern Model* modelSickoLooper3;
+//extern Model* modelSickoLooper5;
+//extern Model* modelSickoPlayer;
+//extern Model* modelSickoQuant;
+//extern Model* modelSickoQuant4;
+extern Model* modelSickoQuantL; // ---- extra
+extern Model* modelSickoQuant4L; // ---- extra
+//extern Model* modelSickoSampler;
 extern Model* modelSickoSampler2;
 extern Model* modelSimpleSeq4;
-extern Model* modelSlewerL;
+//extern Model* modelSlewer;
+extern Model* modelSlewerL; // ---- extra
+extern Model* modelStepSeq;
+//extern Model* modelStepSeqPlus;
 extern Model* modelSwitcher;
 extern Model* modelSwitcherSt;
 extern Model* modelSwitcher8;
-extern Model* modelTogglerCompact;
+//extern Model* modelToggler;
 extern Model* modelTogglerMM;
-
+extern Model* modelTogglerCompact;
+extern Model* modelTrigSeq;
+//extern Model* modelTrigSeqPlus;
+//extern Model* modelWavetabler;

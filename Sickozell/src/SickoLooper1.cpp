@@ -44,15 +44,15 @@
 
 #include "plugin.hpp"
 #include "SickoLooper1Exp.hpp"
-//#include "osdialog.h"
-//#define DR_WAV_IMPLEMENTATION
+#include "osdialog.h"
+#define DR_WAV_IMPLEMENTATION
 #include "dr_wav.h"
 #include <vector>
-//#include "cmath"
+#include "cmath"
 //#include <dirent.h>
-//#include <libgen.h>
-//#include <sys/types.h>
-//#include <sys/stat.h>
+#include <libgen.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 using namespace std;
 
@@ -513,7 +513,7 @@ struct SickoLooper1 : Module {
 		tempBuffer[0].resize(0);
 		tempBuffer[1].resize(0);
 
-		//setClick(0);
+		setClick(0);
 
 		rightExpander.producerMessage = &expOutputMessage[0];
 		rightExpander.consumerMessage = &expOutputMessage[1];
@@ -615,7 +615,7 @@ struct SickoLooper1 : Module {
 			clickSelect = json_integer_value(clickSelectJ);
 			if (clickSelect < 0 || clickSelect > 3)
 				clickSelect = CLICK_STANDARD;
-			//setClick(clickSelect);
+			setClick(clickSelect);
 		}
 
 	}
@@ -724,7 +724,7 @@ struct SickoLooper1 : Module {
 				}
 			}
 			*/
-			//setClick(clickSelect);
+			setClick(clickSelect);
 			
 
 			if (trackStatus != EMPTY) {
@@ -1445,8 +1445,9 @@ struct SickoLooper1 : Module {
 //																											╚█████╔╝███████╗██║╚█████╔╝██║░╚██╗
 //																											░╚════╝░╚══════╝╚═╝░╚════╝░╚═╝░░╚═╝
 
-/*
+
 	void clickMenuLoadSample(int slot) {
+/*
 		static const char FILE_FILTERS[] = "Wave (.wav):wav,WAV;All files (*.*):*.*";
 		osdialog_filters* filters = osdialog_filters_parse(FILE_FILTERS);
 		DEFER({osdialog_filters_free(filters);});
@@ -1465,9 +1466,12 @@ struct SickoLooper1 : Module {
 			clickFileLoaded[slot] = false;
 		}
 		free(path);
+*/
 	}
 
+
 	void clickLoadSample(std::string path, int slot, bool customClick) {
+
 		z1 = 0; z2 = 0;
 
 		unsigned int c;
@@ -1580,13 +1584,14 @@ struct SickoLooper1 : Module {
 
 			char* pathDup = strdup(path.c_str());
 
-			//if (clickSelect == CLICK_CUSTOM) {
+			/*
 			if (customClick) {
 				clickFileDescription[slot] = basename(pathDup);
 
 				clickStoredPath[slot] = path;
 	
 			}
+			*/
 			clickFileLoaded[slot] = true;
 			free(pathDup);
 
@@ -1597,6 +1602,7 @@ struct SickoLooper1 : Module {
 				clickFileDescription[slot] = "(!)"+path;
 			}
 		}
+
 	};
 
 
@@ -1611,11 +1617,18 @@ struct SickoLooper1 : Module {
 	}
 
 	void setClick(int clickNo) {
+
+		//float *loadSample (std::string which, size_t *size) {
+  		//FILE *in = fopen(asset::plugin(pluginInstance, which).c_str(), "rb");
+
+		clickLoadSample(asset::plugin(pluginInstance, "res/clicks/click0_beat.wav"), 0, false);
+		clickLoadSample(asset::plugin(pluginInstance, "res/clicks/click0_bar.wav"), 1, false);
+/*
 		switch (clickNo) {
 			case 0:
 				clickLoadSample(asset::plugin(pluginInstance, "res/clicks/click0_beat.wav"), 0, false);
 				clickLoadSample(asset::plugin(pluginInstance, "res/clicks/click0_bar.wav"), 1, false);
-			break;
+							break;
 
 			case 1:
 				clickLoadSample(asset::plugin(pluginInstance, "res/clicks/click1_beat.wav"), 0, false);
@@ -1636,9 +1649,10 @@ struct SickoLooper1 : Module {
 					clickLoadSample(clickStoredPath[1], 1, true);
 				else clickClearSlot(1);
 			break;
+
 		}
-	}
 */
+	}
 
 //																													██╗░░░░░███████╗██████╗░
 //																													██║░░░░░██╔════╝██╔══██╗
@@ -4846,7 +4860,6 @@ struct SickoLooper1Widget : ModuleWidget {
 				module->setInternalClock(internalClockAlwaysOn);
 		}));
 
-		/*
 
 		struct ClickItem : MenuItem {
 			SickoLooper1* module;
@@ -4857,7 +4870,7 @@ struct SickoLooper1Widget : ModuleWidget {
 			}
 		};
 		menu->addChild(createSubmenuItem("Click Settings", "", [=](Menu * menu) {
-
+/*
 			std::string clickNames[4] = {"Standard", "Click1", "Click2", "Custom"};
 			for (int i = 0; i < 4; i++) {
 				ClickItem* clickItem = createMenuItem<ClickItem>(clickNames[i]);
@@ -4866,9 +4879,17 @@ struct SickoLooper1Widget : ModuleWidget {
 				clickItem->clickSelect = i;
 				menu->addChild(clickItem);
 			}
-
+*/
+			std::string clickNames[3] = {"Standard", "Click1", "Click2"};
+			for (int i = 0; i < 3; i++) {
+				ClickItem* clickItem = createMenuItem<ClickItem>(clickNames[i]);
+				clickItem->rightText = CHECKMARK(module->clickSelect == i);
+				clickItem->module = module;
+				clickItem->clickSelect = i;
+				menu->addChild(clickItem);
+			}
+/*
 			menu->addChild(new MenuSeparator());
-
 			menu->addChild(createMenuItem("Custom BEAT click", "", [=]() {module->clickMenuLoadSample(0);}));
 			menu->addChild(createMenuItem("File: " + module->clickFileDescription[0], "", [=]() {module->clickMenuLoadSample(0);}));
 			menu->addChild(createMenuItem("", "Clear", [=]() {module->clickClearSlot(0);}));
@@ -4876,8 +4897,8 @@ struct SickoLooper1Widget : ModuleWidget {
 			menu->addChild(createMenuItem("Custom BAR click", "", [=]() {module->clickMenuLoadSample(1);}));
 			menu->addChild(createMenuItem("File: " + module->clickFileDescription[1], "", [=]() {module->clickMenuLoadSample(1);}));
 			menu->addChild(createMenuItem("", "Clear", [=]() {module->clickClearSlot(1);}));
+*/
 		}));	
-		*/
 	}
 };
 

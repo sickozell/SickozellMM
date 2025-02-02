@@ -79,34 +79,34 @@ struct SickoOutPort : app::SvgPort {
 struct SickoTrimpot : RoundKnob {
     SickoTrimpot() {
         setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/component/SickoTrimpot.svg")));
-        //bg->setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/component/SickoTrimpot_bg.svg")));
+        bg->setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/component/SickoTrimpot_bg.svg")));
     }
 };
 
 struct SickoKnob : RoundKnob {
     SickoKnob() {
         setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/component/SickoKnob.svg")));
-        //bg->setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/component/SickoKnob_bg.svg")));
+        bg->setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/component/SickoKnob_bg.svg")));
     }
 };
 
 struct SickoSmallKnob : RoundKnob {
     SickoSmallKnob() {
         setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/component/SickoSmallKnob.svg")));
-        //bg->setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/component/SickoSmallKnob_bg.svg")));
+        bg->setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/component/SickoSmallKnob_bg.svg")));
     }
 };
 
 struct SickoBigKnob : RoundKnob {
     SickoBigKnob() {
         setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/component/SickoBigKnob.svg")));
-        //bg->setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/component/SickoBigKnob_bg.svg")));
+        bg->setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/component/SickoBigKnob_bg.svg")));
     }
 };
 
 struct SickoLargeKnob : RoundKnob {
     SickoLargeKnob() {
         setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/component/SickoLargeKnob.svg")));
-        //bg->setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/component/SickoLargeKnob_bg.svg")));
+        bg->setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/component/SickoLargeKnob_bg.svg")));
     }
 };

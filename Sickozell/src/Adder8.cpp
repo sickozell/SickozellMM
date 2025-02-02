@@ -1,5 +1,5 @@
 #include "plugin.hpp"
-
+ 
 struct Adder8 : Module {
 	
 	bool outMode = true;	//  true: Stop On Cable ---- false: sum all outputs
@@ -39,32 +39,32 @@ struct Adder8 : Module {
 		configInput(CV_INPUT+6, "CV #7");
 		configInput(CV_INPUT+7, "CV #8");
 
-		configSwitch(ADDSUB_SWITCH+0, -1.f, 1.f, 0.f, "Op #1", {"Subtract", "Off", "Add"});
-		configSwitch(ADDSUB_SWITCH+1, -1.f, 1.f, 0.f, "Op #2", {"Subtract", "Off", "Add"});
-		configSwitch(ADDSUB_SWITCH+2, -1.f, 1.f, 0.f, "Op #3", {"Subtract", "Off", "Add"});
-		configSwitch(ADDSUB_SWITCH+3, -1.f, 1.f, 0.f, "Op #4", {"Subtract", "Off", "Add"});
-		configSwitch(ADDSUB_SWITCH+4, -1.f, 1.f, 0.f, "Op #5", {"Subtract", "Off", "Add"});
-		configSwitch(ADDSUB_SWITCH+5, -1.f, 1.f, 0.f, "Op #6", {"Subtract", "Off", "Add"});
-		configSwitch(ADDSUB_SWITCH+6, -1.f, 1.f, 0.f, "Op #7", {"Subtract", "Off", "Add"});
-		configSwitch(ADDSUB_SWITCH+7, -1.f, 1.f, 0.f, "Op #8", {"Subtract", "Off", "Add"});
+		configSwitch(ADDSUB_SWITCH+0, -1.f, 1.f, 0.f, "Operation", {"Subtract", "Off", "Add"});
+		configSwitch(ADDSUB_SWITCH+1, -1.f, 1.f, 0.f, "Operation", {"Subtract", "Off", "Add"});
+		configSwitch(ADDSUB_SWITCH+2, -1.f, 1.f, 0.f, "Operation", {"Subtract", "Off", "Add"});
+		configSwitch(ADDSUB_SWITCH+3, -1.f, 1.f, 0.f, "Operation", {"Subtract", "Off", "Add"});
+		configSwitch(ADDSUB_SWITCH+4, -1.f, 1.f, 0.f, "Operation", {"Subtract", "Off", "Add"});
+		configSwitch(ADDSUB_SWITCH+5, -1.f, 1.f, 0.f, "Operation", {"Subtract", "Off", "Add"});
+		configSwitch(ADDSUB_SWITCH+6, -1.f, 1.f, 0.f, "Operation", {"Subtract", "Off", "Add"});
+		configSwitch(ADDSUB_SWITCH+7, -1.f, 1.f, 0.f, "Operation", {"Subtract", "Off", "Add"});
 
-		configParam(VOLT_PARAMS+0, -10.f,10.f, 0.f, "Volt #1", "v");
-		configParam(VOLT_PARAMS+1, -10.f,10.f, 0.f, "Volt #2", "v");
-		configParam(VOLT_PARAMS+2, -10.f,10.f, 0.f, "Volt #3", "v");
-		configParam(VOLT_PARAMS+3, -10.f,10.f, 0.f, "Volt #4", "v");
-		configParam(VOLT_PARAMS+4, -10.f,10.f, 0.f, "Volt #5", "v");
-		configParam(VOLT_PARAMS+5, -10.f,10.f, 0.f, "Volt #6", "v");
-		configParam(VOLT_PARAMS+6, -10.f,10.f, 0.f, "Volt #7", "v");
-		configParam(VOLT_PARAMS+7, -10.f,10.f, 0.f, "Volt #8", "v");
+		configParam(VOLT_PARAMS+0, -10.f,10.f, 0.f, "Volt", "v");
+		configParam(VOLT_PARAMS+1, -10.f,10.f, 0.f, "Volt", "v");
+		configParam(VOLT_PARAMS+2, -10.f,10.f, 0.f, "Volt", "v");
+		configParam(VOLT_PARAMS+3, -10.f,10.f, 0.f, "Volt", "v");
+		configParam(VOLT_PARAMS+4, -10.f,10.f, 0.f, "Volt", "v");
+		configParam(VOLT_PARAMS+5, -10.f,10.f, 0.f, "Volt", "v");
+		configParam(VOLT_PARAMS+6, -10.f,10.f, 0.f, "Volt", "v");
+		configParam(VOLT_PARAMS+7, -10.f,10.f, 0.f, "Volt", "v");
 
-		configSwitch(MODE_SWITCH+0, -1.f, 1.f, 0.f, "Mode #1", {"Subtract/Off", "Add/Off/Subtract", "Off/Add"});
-		configSwitch(MODE_SWITCH+1, -1.f, 1.f, 0.f, "Mode #2", {"Subtract/Off", "Add/Off/Subtract", "Off/Add"});
-		configSwitch(MODE_SWITCH+2, -1.f, 1.f, 0.f, "Mode #3", {"Subtract/Off", "Add/Off/Subtract", "Off/Add"});
-		configSwitch(MODE_SWITCH+3, -1.f, 1.f, 0.f, "Mode #4", {"Subtract/Off", "Add/Off/Subtract", "Off/Add"});
-		configSwitch(MODE_SWITCH+4, -1.f, 1.f, 0.f, "Mode #5", {"Subtract/Off", "Add/Off/Subtract", "Off/Add"});
-		configSwitch(MODE_SWITCH+5, -1.f, 1.f, 0.f, "Mode #6", {"Subtract/Off", "Add/Off/Subtract", "Off/Add"});
-		configSwitch(MODE_SWITCH+6, -1.f, 1.f, 0.f, "Mode #7", {"Subtract/Off", "Add/Off/Subtract", "Off/Add"});
-		configSwitch(MODE_SWITCH+7, -1.f, 1.f, 0.f, "Mode #8", {"Subtract/Off", "Add/Off/Subtract", "Off/Add"});
+		configSwitch(MODE_SWITCH+0, -1.f, 1.f, 0.f, "Mode", {"Subtract/Off", "Add/Off/Subtract", "Off/Add"});
+		configSwitch(MODE_SWITCH+1, -1.f, 1.f, 0.f, "Mode", {"Subtract/Off", "Add/Off/Subtract", "Off/Add"});
+		configSwitch(MODE_SWITCH+2, -1.f, 1.f, 0.f, "Mode", {"Subtract/Off", "Add/Off/Subtract", "Off/Add"});
+		configSwitch(MODE_SWITCH+3, -1.f, 1.f, 0.f, "Mode", {"Subtract/Off", "Add/Off/Subtract", "Off/Add"});
+		configSwitch(MODE_SWITCH+4, -1.f, 1.f, 0.f, "Mode", {"Subtract/Off", "Add/Off/Subtract", "Off/Add"});
+		configSwitch(MODE_SWITCH+5, -1.f, 1.f, 0.f, "Mode", {"Subtract/Off", "Add/Off/Subtract", "Off/Add"});
+		configSwitch(MODE_SWITCH+6, -1.f, 1.f, 0.f, "Mode", {"Subtract/Off", "Add/Off/Subtract", "Off/Add"});
+		configSwitch(MODE_SWITCH+7, -1.f, 1.f, 0.f, "Mode", {"Subtract/Off", "Add/Off/Subtract", "Off/Add"});
 
 		configOutput(OUT_OUTPUT+0, "Out #1");
 		configOutput(OUT_OUTPUT+1, "Out #2");

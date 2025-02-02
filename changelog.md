@@ -1,3 +1,8 @@
+### v0.4
+added following modules:
+stepSeq  
+trigSeq  
+
 ### v0.3
 added following modules:  
 sickoLooper1 (no load/save, no click)  
