@@ -33,16 +33,16 @@ void init(rack::Plugin *p) {
 	p->addModel(modelBtoggler);
 	//p->addModel(modelBtogglerPlus);
 	p->addModel(modelCalcs);
-	//p->addModel(modelClocker);
+	p->addModel(modelClocker);
 	p->addModel(modelClocker2);
 	p->addModel(modelCVrouter);
 	p->addModel(modelCVswitcher);
 	p->addModel(modelDrummer);
 	p->addModel(modelDrummer4);
 	p->addModel(modelDrummer4Plus);
-	//p->addModel(modelDrumPlayer);
-	//p->addModel(modelDrumPlayerPlus);
-	//p->addModel(modelDrumPlayerXtra);
+	p->addModel(modelDrumPlayer);
+	p->addModel(modelDrumPlayerPlus);
+	p->addModel(modelDrumPlayerXtra);
 	//p->addModel(modelEnver);
 	//p->addModel(modelHolder);
 	//p->addModel(modelHolderCompact);
@@ -51,7 +51,7 @@ void init(rack::Plugin *p) {
 	p->addModel(modelHolderL); // ---- extra
 	p->addModel(modelHolderCompactL); // ---- extra
 	p->addModel(modelHolder8L); // ---- extra
-	//p->addModel(modelKeySampler);
+	p->addModel(modelKeySampler);
 	p->addModel(modelModulator);
 	p->addModel(modelModulator7);
 	p->addModel(modelModulator7Compact);
@@ -78,12 +78,12 @@ void init(rack::Plugin *p) {
 	p->addModel(modelSickoLooper1Exp);
 	//p->addModel(modelSickoLooper3);
 	//p->addModel(modelSickoLooper5);
-	//p->addModel(modelSickoPlayer);
+	p->addModel(modelSickoPlayer);
 	//p->addModel(modelSickoQuant);
 	//p->addModel(modelSickoQuant4);
 	p->addModel(modelSickoQuantL); // ---- extra
 	p->addModel(modelSickoQuant4L); // ---- extra
-	//p->addModel(modelSickoSampler);
+	p->addModel(modelSickoSampler);
 	p->addModel(modelSickoSampler2);
 	p->addModel(modelSimpleSeq4);
 	//p->addModel(modelSlewer);
@@ -98,5 +98,5 @@ void init(rack::Plugin *p) {
 	p->addModel(modelTogglerCompact);
 	p->addModel(modelTrigSeq);
 	//p->addModel(modelTrigSeqPlus);
-	//p->addModel(modelWavetabler);
+	p->addModel(modelWavetabler);
 }

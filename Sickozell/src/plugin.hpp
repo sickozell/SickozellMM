@@ -19,16 +19,16 @@ extern Model* modelBtogglerStCompact;
 extern Model* modelBtoggler;
 //extern Model* modelBtogglerPlus;
 extern Model* modelCalcs;
-//extern Model* modelClocker;
+extern Model* modelClocker;
 extern Model* modelClocker2;
 extern Model* modelCVrouter;
 extern Model* modelCVswitcher;
 extern Model* modelDrummer;
 extern Model* modelDrummer4;
 extern Model* modelDrummer4Plus;
-//extern Model* modelDrumPlayer;
-//extern Model* modelDrumPlayerPlus;
-//extern Model* modelDrumPlayerXtra;
+extern Model* modelDrumPlayer;
+extern Model* modelDrumPlayerPlus;
+extern Model* modelDrumPlayerXtra;
 //extern Model* modelEnver;
 //extern Model* modelHolder;
 //extern Model* modelHolderCompact;
@@ -37,7 +37,7 @@ extern Model* modelEnverL; // ---- extra
 extern Model* modelHolderL; // ---- extra
 extern Model* modelHolderCompactL; // ---- extra
 extern Model* modelHolder8L; // ---- extra
-//extern Model* modelKeySampler;
+extern Model* modelKeySampler;
 extern Model* modelModulator;
 extern Model* modelModulator7;
 extern Model* modelModulator7Compact;
@@ -64,12 +64,12 @@ extern Model* modelSickoLooper1;
 extern Model* modelSickoLooper1Exp;
 //extern Model* modelSickoLooper3;
 //extern Model* modelSickoLooper5;
-//extern Model* modelSickoPlayer;
+extern Model* modelSickoPlayer;
 //extern Model* modelSickoQuant;
 //extern Model* modelSickoQuant4;
 extern Model* modelSickoQuantL; // ---- extra
 extern Model* modelSickoQuant4L; // ---- extra
-//extern Model* modelSickoSampler;
+extern Model* modelSickoSampler;
 extern Model* modelSickoSampler2;
 extern Model* modelSimpleSeq4;
 //extern Model* modelSlewer;
@@ -84,4 +84,4 @@ extern Model* modelTogglerMM;
 extern Model* modelTogglerCompact;
 extern Model* modelTrigSeq;
 //extern Model* modelTrigSeqPlus;
-//extern Model* modelWavetabler;
+extern Model* modelWavetabler;

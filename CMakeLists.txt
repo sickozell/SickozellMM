@@ -32,20 +32,21 @@ target_sources(Sickozell PRIVATE
     ${SOURCE_DIR}/src/BtogglerStCompact.cpp
     #${SOURCE_DIR}/src/BtogglerPlus.cpp
     ${SOURCE_DIR}/src/Calcs.cpp
-    #${SOURCE_DIR}/src/Clocker.cpp
+    ${SOURCE_DIR}/src/Clocker.cpp
     ${SOURCE_DIR}/src/Clocker2.cpp
     ${SOURCE_DIR}/src/CVrouter.cpp
     ${SOURCE_DIR}/src/CVswitcher.cpp
     ${SOURCE_DIR}/src/Drummer.cpp
     ${SOURCE_DIR}/src/Drummer4.cpp
     ${SOURCE_DIR}/src/Drummer4Plus.cpp
-    #${SOURCE_DIR}/src/DrumPlayer.cpp
-    #${SOURCE_DIR}/src/DrumPlayerPlus.cpp
-    #${SOURCE_DIR}/src/DrumPlayerXtra.cpp
+    ${SOURCE_DIR}/src/DrumPlayer.cpp
+    ${SOURCE_DIR}/src/DrumPlayerPlus.cpp
+    ${SOURCE_DIR}/src/DrumPlayerXtra.cpp
     ${SOURCE_DIR}/src/EnverL.cpp
     ${SOURCE_DIR}/src/Holder8L.cpp
     ${SOURCE_DIR}/src/HolderCompactL.cpp
     ${SOURCE_DIR}/src/HolderL.cpp
+    ${SOURCE_DIR}/src/KeySampler.cpp
     ${SOURCE_DIR}/src/Modulator.cpp
     ${SOURCE_DIR}/src/Modulator7.cpp
     ${SOURCE_DIR}/src/Modulator7Compact.cpp
@@ -62,10 +63,10 @@ target_sources(Sickozell PRIVATE
     ${SOURCE_DIR}/src/SickoLooper1Exp.cpp
     #${SOURCE_DIR}/src/SickoLooper3.cpp
     #${SOURCE_DIR}/src/SickoLooper5.cpp
-    #${SOURCE_DIR}/src/SickoPlayer.cpp
+    ${SOURCE_DIR}/src/SickoPlayer.cpp
     ${SOURCE_DIR}/src/SickoQuant4L.cpp
     ${SOURCE_DIR}/src/SickoQuantL.cpp
-    #${SOURCE_DIR}/src/SickoSampler.cpp
+    ${SOURCE_DIR}/src/SickoSampler.cpp
     ${SOURCE_DIR}/src/SickoSampler2.cpp
     ${SOURCE_DIR}/src/SimpleSeq4.cpp
     ${SOURCE_DIR}/src/SlewerL.cpp
@@ -79,7 +80,7 @@ target_sources(Sickozell PRIVATE
     ${SOURCE_DIR}/src/TogglerMM.cpp
     ${SOURCE_DIR}/src/TrigSeq.cpp
     #${SOURCE_DIR}/src/TrigSeqPlus.cpp
-    #${SOURCE_DIR}/src/Wavetabler.cpp
+    ${SOURCE_DIR}/src/Wavetabler.cpp
 )
 
 # Add includes and compile options for source repo

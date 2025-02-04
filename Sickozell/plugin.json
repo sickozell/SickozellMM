@@ -94,7 +94,7 @@
         "Utility"
       ]
     },
-    /*{
+    {
       "slug": "Clocker",
       "name": "clocker",
       "description": "Clock generator with 4 dividers/multipliers and audio metronome",
@@ -102,7 +102,7 @@
         "Clock generator",
         "Clock modulator"
       ]
-    },*/
+    },
     {
       "slug": "Clocker2",
       "name": "clocker2",
@@ -160,7 +160,7 @@
         "Quad"
       ]
     },
-    /*{
+    {
       "slug": "DrumPlayer",
       "name": "drumPlayer",
       "description": "Drum Sample Player",
@@ -189,7 +189,7 @@
         "Drum",
         "Quad"
       ]
-    },*/
+    },
     /*
     {
       "slug": "Enver",
@@ -269,14 +269,14 @@
         "Quad"
       ]
     },
-    /*{
+    {
       "slug": "KeySampler",
       "name": "keySampler",
       "description": "Keyboard controlled sampler",
       "tags": [
         "Sampler"
       ]
-    },*/
+    },
     {
       "slug": "Modulator",
       "name": "modulator",
@@ -493,7 +493,7 @@
         "Sampler"
       ]
     },*/
-    /*{
+    {
       "slug": "SickoPlayer",
       "name": "sickoPlayer",
       "description": "Sample Player",
@@ -501,7 +501,7 @@
         "Sampler",
         "Polyphonic"
       ]
-    },*/
+    },
     /*{
       "slug": "SickoQuant",
       "name": "sickoQuant",
@@ -536,7 +536,7 @@
         "Quantizer"
       ]
     },
-    /*{
+    {
       "slug": "SickoSampler",
       "name": "sickoSampler",
       "description": "Sample Player and Recorder",
@@ -544,7 +544,7 @@
         "Sampler",
         "Polyphonic"
       ]
-    },*/
+    },
     {
       "slug": "SickoSampler2",
       "name": "sickoSampler2",
@@ -668,7 +668,7 @@
       "tags": [
         "Sequencer"
       ]
-    }/*,
+    },
     {
       "slug": "TrigSeqPlus",
       "name": "trigSeq+",
@@ -676,7 +676,7 @@
       "tags": [
         "Sequencer"
       ]
-    },
+    },*/
     {
       "slug": "Wavetabler",
       "name": "wavetabler",
@@ -685,6 +685,6 @@
         "Sampler",
         "Polyphonic"
       ]
-    }*/
+    }
   ]
 }

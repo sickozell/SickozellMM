@@ -45,11 +45,14 @@
 #include "plugin.hpp"
 #include "SickoLooper1Exp.hpp"
 #include "osdialog.h"
-#define DR_WAV_IMPLEMENTATION
+#if defined(METAMODULE)
+#include "async_filebrowser.hh"
+#endif
+//#define DR_WAV_IMPLEMENTATION
 #include "dr_wav.h"
 #include <vector>
 #include "cmath"
-//#include <dirent.h>
+#include <dirent.h>
 #include <libgen.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -920,12 +923,16 @@ struct SickoLooper1 : Module {
 																					╚══════╝░╚════╝░╚═╝░░╚═╝╚═════╝░
 */
 
-/*
+
 	void menuLoadSample() {
 		static const char FILE_FILTERS[] = "Wave (.wav):wav,WAV;All files (*.*):*.*";
 		osdialog_filters* filters = osdialog_filters_parse(FILE_FILTERS);
 		DEFER({osdialog_filters_free(filters);});
+#if defined(METAMODULE)
+		async_osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters, [=, this](char *path) {
+#else
 		char *path = osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters);
+#endif
 		
 		if (path)
 			loadSample(path);
@@ -940,6 +947,10 @@ struct SickoLooper1 : Module {
 		free(path);
 
 		fileLoaded = false;
+
+#if defined(METAMODULE)
+		});
+#endif
 	}
 
 	void loadSample(std::string path) {
@@ -1145,7 +1156,6 @@ struct SickoLooper1 : Module {
 		} 
 	};
 
-*/
 
 //
 //																							██████╗░██████╗░███████╗░██████╗███████╗████████╗
@@ -1447,11 +1457,17 @@ struct SickoLooper1 : Module {
 
 
 	void clickMenuLoadSample(int slot) {
-/*
+
 		static const char FILE_FILTERS[] = "Wave (.wav):wav,WAV;All files (*.*):*.*";
 		osdialog_filters* filters = osdialog_filters_parse(FILE_FILTERS);
 		DEFER({osdialog_filters_free(filters);});
+
+#if defined(METAMODULE)
+		async_osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters, [=, this](char *path) {
+#else
 		char *path = osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters);
+#endif
+
 		clickFileLoaded[slot] = false;
 		if (path) {
 			clickLoadSample(path, slot, true);
@@ -1466,7 +1482,9 @@ struct SickoLooper1 : Module {
 			clickFileLoaded[slot] = false;
 		}
 		free(path);
-*/
+#if defined(METAMODULE)
+		});
+#endif
 	}
 
 

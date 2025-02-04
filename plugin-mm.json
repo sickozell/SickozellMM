@@ -41,10 +41,10 @@
 			"slug": "Calcs",
 			"name": "calcs"
 		},
-		/*{
+		{
 			"slug": "Clocker",
 			"name": "clocker"
-		},*/
+		},
 		{
 			"slug": "Clocker2",
 			"name": "clocker2"
@@ -69,7 +69,7 @@
 			"slug": "Drummer4Plus",
 			"name": "drummer4+"
 		},
-		/*{
+		{
 			"slug": "DrumPlayer",
 			"name": "drumPlayer"
 		},
@@ -80,7 +80,7 @@
 		{
 			"slug": "DrumPlayerXtra",
 			"name": "drumPlayerXtra"
-		},*/
+		},
 		{
 			"slug": "EnverL",
 			"name": "enver lite"
@@ -97,10 +97,10 @@
 			"slug": "Holder8L",
 			"name": "holder8 lite"
 		},
-		/*{
+		{
 			"slug": "KeySampler",
 			"name": "keySampler"
-		},*/
+		},
 		{
 			"slug": "Modulator",
 			"name": "modulator"
@@ -161,10 +161,10 @@
 			"slug": "SickoLooper3",
 			"name": "sickoLooper3"
 		},*/
-		/*{
+		{
 			"slug": "SickoPlayer",
 			"name": "sickoPlayer"
-		},*/
+		},
 		{
 			"slug": "SickoQuantL",
 			"name": "sickoQuant lite"
@@ -173,10 +173,10 @@
 			"slug": "SickoQuant4L",
 			"name": "sickoQuant4 lite"
 		},
-		/*{
+		{
 			"slug": "SickoSampler",
 			"name": "sickoSampler"
-		},*/
+		},
 		{
 			"slug": "SickoSampler2",
 			"name": "sickoSampler2"
@@ -224,11 +224,11 @@
 		{
 			"slug": "TrigSeq",
 			"name": "trigSeq",
-		}/*,
-		{
+		},
+		/*{
 			"slug": "TrigSeqPlus",
 			"name": "trigSeq+",
-		},
+		},*/
 		{
 			"slug": "WaveTabler",
 			"name": "waveTabler",
