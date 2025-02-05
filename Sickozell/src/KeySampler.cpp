@@ -1477,6 +1477,8 @@ struct KeySampler : Module {
 																							██████╔╝██║░░██║░░╚██╔╝░░███████╗
 																							╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░╚══════╝
 */
+
+/*
 	void menuSaveSample(int mode, int slot) {
 		fileChannels[slot] = channels[slot];
 		fileLoaded[slot] = false;
@@ -1484,11 +1486,11 @@ struct KeySampler : Module {
 		osdialog_filters* filters = osdialog_filters_parse(FILE_FILTERS);
 		DEFER({osdialog_filters_free(filters);});
 #if defined(METAMODULE)
-		async_osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters, [=, this](char *path) {
+		async_osdialog_file(OSDIALOG_SAVE, NULL, NULL, filters, [this](char *path) {
 #else
 		char *path = osdialog_file(OSDIALOG_SAVE, NULL, NULL, filters);
 #endif
-
+		
 		if (path) {
 			saveMode = mode;
 			saveSample(path, slot);
@@ -1504,7 +1506,7 @@ struct KeySampler : Module {
 		});
 #endif
 	};
-
+*/
 	void saveSample(std::string path, int slot) {
 
 		std::string newPath = path;
@@ -4323,7 +4325,7 @@ struct KeySamplerWidget : ModuleWidget {
 
 	}
 
-	
+	/*
 	void loadSubfolder(rack::ui::Menu *menu, std::string path) {
 		KeySampler *module = dynamic_cast<KeySampler*>(this->module);
 			assert(module);
@@ -4364,12 +4366,13 @@ struct KeySamplerWidget : ModuleWidget {
 			}
 		}
 	}
-	
+	*/
 
 	void appendContextMenu(Menu *menu) override {
 	   	KeySampler *module = dynamic_cast<KeySampler*>(this->module);
 			assert(module);
 
+		/*
 		menu->addChild(new MenuSeparator());
 		menu->addChild(createMenuItem("Load Sample", "", [=]() {
 			//module->menuLoadSample();
@@ -4418,19 +4421,20 @@ struct KeySamplerWidget : ModuleWidget {
 			menu->addChild(createMenuItem("", "Clear", [=]() {module->clearSlot(module->currSlot);}));
 
 			menu->addChild(new MenuSeparator());
-/*			
+			
 			menu->addChild(createMenuItem("Save FULL Sample", "", [=]() {module->menuSaveSample(SAVE_FULL, module->currSlot);}));
 			menu->addChild(createMenuItem("Save CUE Region", "", [=]() {module->menuSaveSample(SAVE_CUE, module->currSlot);}));
 			menu->addChild(createMenuItem("Save LOOP Region", "", [=]() {module->menuSaveSample(SAVE_LOOP, module->currSlot);}));
 
 			menu->addChild(createBoolPtrMenuItem("Trim Sample after Save", "", &module->trimOnSave));
 			menu->addChild(createBoolPtrMenuItem("Save Oversampled", "", &module->saveOversampled));
-*/		
+		
 		} else if (module->storedPath[module->currSlot] != "" && module->fileFound[module->currSlot] == false) {
 			menu->addChild(createMenuLabel("Sample ERROR:"));
 			menu->addChild(createMenuLabel(module->fileDescription[module->currSlot]));
 			menu->addChild(createMenuItem("", "Clear", [=]() {module->clearSlot(module->currSlot);}));
 		}
+		*/
 		
 		menu->addChild(new MenuSeparator());
 		menu->addChild(createMenuItem("Select Samples Root", "", [=]() {module->selectRootFolder();}));

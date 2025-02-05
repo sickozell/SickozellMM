@@ -539,7 +539,7 @@ struct SickoLooper1Exp : Module {
 
 	void onReset(const ResetEvent &e) override {
 
-		//system::removeRecursively(getPatchStorageDirectory().c_str());
+		system::removeRecursively(getPatchStorageDirectory().c_str());
 
 		globalStatus = IDLE;
 		sendStatus = IDLE;
@@ -572,7 +572,7 @@ struct SickoLooper1Exp : Module {
 
 		Module::onReset(e);
 	}
-/*
+
 	void onAdd(const AddEvent& e) override {
 		std::string path;
 
@@ -595,7 +595,6 @@ struct SickoLooper1Exp : Module {
 
 		Module::onSave(e);
 	}
-*/
 
 /*
 
@@ -762,17 +761,23 @@ struct SickoLooper1Exp : Module {
 																							██████╔╝██║░░██║░░╚██╔╝░░███████╗
 																							╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░╚══════╝
 */
-
-/*
 	void menuSaveSample() {
 		static const char FILE_FILTERS[] = "Wave (.wav):wav,WAV";
 		osdialog_filters* filters = osdialog_filters_parse(FILE_FILTERS);
 		DEFER({osdialog_filters_free(filters);});
+#if defined(METAMODULE)
+		async_osdialog_file(OSDIALOG_SAVE, NULL, NULL, filters, [this](char *path) {
+#else
 		char *path = osdialog_file(OSDIALOG_SAVE, NULL, NULL, filters);
+#endif
+		
 		if (path)
 			saveSample(path);
 
 		free(path);
+#if defined(METAMODULE)
+		});
+#endif
 	};
 
 	void saveSample(std::string path) {
@@ -808,9 +813,6 @@ struct SickoLooper1Exp : Module {
 		data.clear();
 		
 	}
-
-*/
-
 /*
 
 																					██╗░░░░░░█████╗░░█████╗░██████╗░
@@ -831,6 +833,7 @@ struct SickoLooper1Exp : Module {
 #else
 		char *path = osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters);
 #endif
+		
 		if (path)
 			loadSample(path);
 
@@ -3492,16 +3495,19 @@ struct SickoLooper1ExpDisplayLoop1 : TransparentWidget {
 					module->setExtraSamples(xtraSamples);
 			}));
 
-			
+			/*
+			if (module->trackStatus != EMPTY)
+				menu->addChild(createMenuItem("Detect tempo and set bpm", "", [=]() {module->detectTempo();}));
+			else
+				menu->addChild(createMenuLabel("Detect tempo and set bpm"));
+			*/
+
 			menu->addChild(new MenuSeparator());
 			menu->addChild(createMenuItem("Import Wav", "", [=]() {module->menuLoadSample();}));
-/*
 			if (module->trackStatus != EMPTY)
 				menu->addChild(createMenuItem("Export Wav", "", [=]() {module->menuSaveSample();}));
 			else
 				menu->addChild(createMenuLabel("Export Wav"));
-
-*/
 		}
 	}
 };
@@ -3736,17 +3742,27 @@ struct SickoLooper1ExpWidget : ModuleWidget {
 					module->setExtraSamples(xtraSamples);
 			}));
 
+			/*
+			if (module->trackStatus != EMPTY)
+				menu->addChild(createMenuItem("Detect tempo and set bpm", "", [=]() {module->detectTempo();}));
+			else
+				menu->addChild(createMenuLabel("Detect tempo and set bpm"));
+			*/
+
 			menu->addChild(new MenuSeparator());
 			menu->addChild(createMenuItem("Import Wav", "", [=]() {module->menuLoadSample();}));
-/*
 			if (module->trackStatus != EMPTY)
 				menu->addChild(createMenuItem("Export Wav", "", [=]() {module->menuSaveSample();}));
 			else
 				menu->addChild(createMenuLabel("Export Wav"));
-*/
-
 		}));
 
+		/*
+		menu->addChild(new MenuSeparator());
+		menu->addChild(createMenuItem("Load preset (+loops)", "", [=]() {module->menuLoadPreset();}));
+		menu->addChild(createMenuItem("Save preset", "", [=]() {module->menuSavePreset(false);}));
+		menu->addChild(createMenuItem("Save preset + loops", "", [=]() {module->menuSavePreset(true);}));
+		*/
 
 	}
 };

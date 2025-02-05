@@ -62,7 +62,7 @@ extern Model* modelSickoCrosserL; // ---- extra
 extern Model* modelSickoCrosser4L; // ---- extra
 extern Model* modelSickoLooper1;
 extern Model* modelSickoLooper1Exp;
-//extern Model* modelSickoLooper3;
+extern Model* modelSickoLooper3;
 //extern Model* modelSickoLooper5;
 extern Model* modelSickoPlayer;
 //extern Model* modelSickoQuant;
@@ -75,7 +75,7 @@ extern Model* modelSimpleSeq4;
 //extern Model* modelSlewer;
 extern Model* modelSlewerL; // ---- extra
 extern Model* modelStepSeq;
-//extern Model* modelStepSeqPlus;
+extern Model* modelStepSeqPlus;
 extern Model* modelSwitcher;
 extern Model* modelSwitcherSt;
 extern Model* modelSwitcher8;
@@ -83,5 +83,5 @@ extern Model* modelSwitcher8;
 extern Model* modelTogglerMM;
 extern Model* modelTogglerCompact;
 extern Model* modelTrigSeq;
-//extern Model* modelTrigSeqPlus;
+extern Model* modelTrigSeqPlus;
 extern Model* modelWavetabler;

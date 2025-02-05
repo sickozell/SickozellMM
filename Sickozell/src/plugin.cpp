@@ -76,7 +76,7 @@ void init(rack::Plugin *p) {
 	p->addModel(modelSickoCrosser4L); // ---- extra
 	p->addModel(modelSickoLooper1);
 	p->addModel(modelSickoLooper1Exp);
-	//p->addModel(modelSickoLooper3);
+	p->addModel(modelSickoLooper3);
 	//p->addModel(modelSickoLooper5);
 	p->addModel(modelSickoPlayer);
 	//p->addModel(modelSickoQuant);
@@ -89,7 +89,7 @@ void init(rack::Plugin *p) {
 	//p->addModel(modelSlewer);
 	p->addModel(modelSlewerL);
 	p->addModel(modelStepSeq);
-	//p->addModel(modelStepSeqPlus);
+	p->addModel(modelStepSeqPlus);
 	p->addModel(modelSwitcher);
 	p->addModel(modelSwitcherSt);
 	p->addModel(modelSwitcher8);
@@ -97,6 +97,6 @@ void init(rack::Plugin *p) {
 	p->addModel(modelTogglerMM);
 	p->addModel(modelTogglerCompact);
 	p->addModel(modelTrigSeq);
-	//p->addModel(modelTrigSeqPlus);
+	p->addModel(modelTrigSeqPlus);
 	p->addModel(modelWavetabler);
 }

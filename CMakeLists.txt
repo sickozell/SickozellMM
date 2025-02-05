@@ -61,7 +61,7 @@ target_sources(Sickozell PRIVATE
     ${SOURCE_DIR}/src/SickoCrosserL.cpp
     ${SOURCE_DIR}/src/SickoLooper1.cpp
     ${SOURCE_DIR}/src/SickoLooper1Exp.cpp
-    #${SOURCE_DIR}/src/SickoLooper3.cpp
+    ${SOURCE_DIR}/src/SickoLooper3.cpp
     #${SOURCE_DIR}/src/SickoLooper5.cpp
     ${SOURCE_DIR}/src/SickoPlayer.cpp
     ${SOURCE_DIR}/src/SickoQuant4L.cpp
@@ -71,7 +71,7 @@ target_sources(Sickozell PRIVATE
     ${SOURCE_DIR}/src/SimpleSeq4.cpp
     ${SOURCE_DIR}/src/SlewerL.cpp
     ${SOURCE_DIR}/src/StepSeq.cpp
-    #${SOURCE_DIR}/src/StepSeqPlus.cpp
+    ${SOURCE_DIR}/src/StepSeqPlus.cpp
     ${SOURCE_DIR}/src/Switcher.cpp
     ${SOURCE_DIR}/src/Switcher8.cpp
     ${SOURCE_DIR}/src/SwitcherSt.cpp
@@ -79,7 +79,7 @@ target_sources(Sickozell PRIVATE
     #${SOURCE_DIR}/src/Toggler.cpp
     ${SOURCE_DIR}/src/TogglerMM.cpp
     ${SOURCE_DIR}/src/TrigSeq.cpp
-    #${SOURCE_DIR}/src/TrigSeqPlus.cpp
+    ${SOURCE_DIR}/src/TrigSeqPlus.cpp
     ${SOURCE_DIR}/src/Wavetabler.cpp
 )
 

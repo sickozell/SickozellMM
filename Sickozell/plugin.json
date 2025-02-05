@@ -477,14 +477,14 @@
         "Expander"
       ]
     },
-    /*{
+    {
       "slug": "SickoLooper3",
       "name": "sickoLooper3",
       "description": "3 track looper with builtin clock generator, click and meter",
       "tags": [
         "Sampler"
       ]
-    },*/
+    },
     /*{
       "slug": "SickoLooper5",
       "name": "sickoLooper5",
@@ -589,14 +589,14 @@
         "Sequencer"
       ]
     },
-    /*{
+    {
       "slug": "StepSeqPlus",
       "name": "stepSeq+",
       "description": "16 step sequencer with direction and presets(ss16+)",
       "tags": [
         "Sequencer"
       ]
-    },*/
+    },
     {
       "slug": "Switcher",
       "name": "switcher",
@@ -676,7 +676,7 @@
       "tags": [
         "Sequencer"
       ]
-    },*/
+    },
     {
       "slug": "Wavetabler",
       "name": "wavetabler",

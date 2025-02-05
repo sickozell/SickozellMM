@@ -436,11 +436,10 @@ struct SickoSampler2 : Module {
 		recButton = 0;
 		prevMonitorSwitch = 0;
 		prevXfade = -1.f;
-//		system::removeRecursively(getPatchStorageDirectory().c_str());
+		system::removeRecursively(getPatchStorageDirectory().c_str());
 		Module::onReset(e);
 	}
 
-/*
 	void onAdd(const AddEvent& e) override {
 		if (!fileLoaded) {
 			std::string patchFile = system::join(getPatchStorageDirectory(), "sample.wav");
@@ -463,8 +462,6 @@ struct SickoSampler2 : Module {
 
 		Module::onSave(e);
 	}
-
-*/
 
 	json_t *dataToJson() override {
 		json_t *rootJ = json_object();
@@ -542,8 +539,6 @@ struct SickoSampler2 : Module {
 		json_t* unlimitedRecordingJ = json_object_get(rootJ, "unlimitedRecording");
 		if (unlimitedRecordingJ)
 			unlimitedRecording = json_boolean_value(unlimitedRecordingJ);
-
-/*
 		json_t *slotJ = json_object_get(rootJ, "Slot");
 		if (slotJ) {
 			storedPath = json_string_value(slotJ);
@@ -551,7 +546,7 @@ struct SickoSampler2 : Module {
 				loadSample(storedPath);
 			else
 				firstLoad = false;
-		}	
+	}
 		json_t *userFolderJ = json_object_get(rootJ, "UserFolder");
 		if (userFolderJ) {
 			userFolder = json_string_value(userFolderJ);
@@ -563,7 +558,6 @@ struct SickoSampler2 : Module {
 				}
 			}
 		}
-*/
 	}
 	
 	void calcBiquadLpf(double frequency, double samplerate, double Q) {
@@ -602,8 +596,6 @@ struct SickoSampler2 : Module {
 		return (((((c3 * t) + c2) * t) + c1) * t) + c0;
 	}
 
-
-
 	void selectRootFolder() {
 		const char* prevFolder = userFolder.c_str();
 #if defined(METAMODULE)
@@ -611,6 +603,7 @@ struct SickoSampler2 : Module {
 #else
 		char *path = osdialog_file(OSDIALOG_OPEN_DIR, prevFolder, NULL, NULL);
 #endif
+
 		if (path) {
 			folderTreeData.clear();
 			folderTreeDisplay.clear();
@@ -651,7 +644,6 @@ struct SickoSampler2 : Module {
 		std::string lastChar = dir_path.substr(dir_path.length()-1,dir_path.length()-1);
 		if (lastChar != "/")
 			dir_path += "/";
-
 
 		DIR *dir = opendir(dir_path.c_str());
 
@@ -739,7 +731,6 @@ struct SickoSampler2 : Module {
 			tempTreeData.push_back(browserFiles[i]);
 		}
 	};
-
 
 /*
 
@@ -878,15 +869,18 @@ struct SickoSampler2 : Module {
 																							██████╔╝██║░░██║░░╚██╔╝░░███████╗
 																							╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░╚══════╝
 */
-
-/*
 	void menuSaveSample(int mode) {
 		fileChannels = channels;
 		fileLoaded = false;
 		static const char FILE_FILTERS[] = "Wave (.wav):wav,WAV";
 		osdialog_filters* filters = osdialog_filters_parse(FILE_FILTERS);
 		DEFER({osdialog_filters_free(filters);});
+#if defined(METAMODULE)
+		async_osdialog_file(OSDIALOG_SAVE, NULL, NULL, filters, [=, this](char *path) {
+#else
 		char *path = osdialog_file(OSDIALOG_SAVE, NULL, NULL, filters);
+#endif
+
 		if (path) {
 			saveMode = mode;
 			fileDescription = basename(path);
@@ -901,6 +895,9 @@ struct SickoSampler2 : Module {
 		channels = fileChannels;
 		fileLoaded = true;
 		free(path);
+#if defined(METAMODULE)
+		});
+#endif
 	};
 
 	void saveSample(std::string path) {
@@ -1049,9 +1046,6 @@ struct SickoSampler2 : Module {
 		fileFound = true;
 		channels = fileChannels;
 	}
-*/
-
-
 /*
 
 																					██╗░░░░░░█████╗░░█████╗░██████╗░
@@ -1061,8 +1055,6 @@ struct SickoSampler2 : Module {
 																					███████╗╚█████╔╝██║░░██║██████╔╝
 																					╚══════╝░╚════╝░╚═╝░░╚═╝╚═════╝░
 */
-
-
 	void menuLoadSample() {
 		static const char FILE_FILTERS[] = "Wave (.wav):wav,WAV;All files (*.*):*.*";
 		osdialog_filters* filters = osdialog_filters_parse(FILE_FILTERS);
@@ -1072,6 +1064,7 @@ struct SickoSampler2 : Module {
 #else
 		char *path = osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters);
 #endif
+
 		fileLoaded = false;
 		restoreLoadFromPatch = false;
 		if (path) {
@@ -1396,10 +1389,7 @@ struct SickoSampler2 : Module {
 			channelsDisplay = "";
 		}
 	};
-
-
-
-
+	
 	void clearSlot() {
 		fileLoaded = false;
 		fileFound = false;
@@ -1549,9 +1539,7 @@ struct SickoSampler2 : Module {
 */
 	void process(const ProcessArgs &args) override {
 
-
-
-
+		//if (!disableNav) {
 		if (!disableNav && !loadFromPatch) {
 			nextSample = params[NEXTSAMPLE_PARAM].getValue();
 			if (fileLoaded && fileFound && recordingState == 0 && nextSample && !prevNextSample) {
@@ -1575,7 +1563,6 @@ struct SickoSampler2 : Module {
 			}
 			prevPrevSample = prevSample;
 		}
-
 
 		reverseStart = params[REV_PARAM].getValue();
 		lights[REV_LIGHT].setBrightness(reverseStart);
@@ -3242,15 +3229,15 @@ struct SickoSampler2Display : TransparentWidget {
 	SickoSampler2Display() {
 	}
 
-/*
-
 	void onButton(const event::Button &e) override {
+		/*if (e.button == GLFW_MOUSE_BUTTON_LEFT && e.action == GLFW_PRESS)
+			e.consume(this);*/
+
 		if (e.action == GLFW_PRESS && e.button == GLFW_MOUSE_BUTTON_RIGHT && (e.mods & RACK_MOD_MASK) == 0) {
 			createContextMenu();
 			e.consume(this);
 		}
 	}
-*/
 
 	void drawLayer(const DrawArgs &args, int layer) override {
 		if (module) {
@@ -3398,9 +3385,6 @@ struct SickoSampler2Display : TransparentWidget {
 		Widget::drawLayer(args, layer);
 	}
 
-
-
-
 	void loadSubfolder(rack::ui::Menu *menu, std::string path) {
 		SickoSampler2 *module = dynamic_cast<SickoSampler2*>(this->module);
 			assert(module);
@@ -3493,14 +3477,13 @@ struct SickoSampler2Display : TransparentWidget {
 					menu->addChild(createMenuLabel(tempDisplay));
 
 				menu->addChild(createMenuItem("", "Clear", [=]() {module->clearSlot();}));
-/*
+
 				menu->addChild(createMenuItem("Save FULL Sample", "", [=]() {module->menuSaveSample(SAVE_FULL);}));
 				menu->addChild(createMenuItem("Save CUE Region", "", [=]() {module->menuSaveSample(SAVE_CUE);}));
 				menu->addChild(createMenuItem("Save LOOP Region", "", [=]() {module->menuSaveSample(SAVE_LOOP);}));
 
 				menu->addChild(createBoolPtrMenuItem("Trim Sample after Save", "", &module->trimOnSave));
 				menu->addChild(createBoolPtrMenuItem("Save Oversampled", "", &module->saveOversampled));
-*/
 			}
 
 			menu->addChild(new MenuSeparator());
@@ -3515,11 +3498,7 @@ struct SickoSampler2Display : TransparentWidget {
 			}));
 		}
 	}
-
 };
-
-
-
 
 struct SickoSampler2Widget : ModuleWidget {
 	SickoSampler2Widget(SickoSampler2 *module) {
@@ -3663,8 +3642,6 @@ struct SickoSampler2Widget : ModuleWidget {
 
 	}
 
-
-
 	void loadSubfolder(rack::ui::Menu *menu, std::string path) {
 		SickoSampler2 *module = dynamic_cast<SickoSampler2*>(this->module);
 			assert(module);
@@ -3706,15 +3683,13 @@ struct SickoSampler2Widget : ModuleWidget {
 		}
 	}
 
-
-
 	void appendContextMenu(Menu *menu) override {
 	   	SickoSampler2 *module = dynamic_cast<SickoSampler2*>(this->module);
 			assert(module);
 
-
 		menu->addChild(new MenuSeparator());
 		menu->addChild(createMenuItem("Load Sample", "", [=]() {
+			//module->menuLoadSample();
 			bool temploadFromPatch = module->loadFromPatch;
 			module->loadFromPatch = false;
 			module->menuLoadSample();
@@ -3724,6 +3699,8 @@ struct SickoSampler2Widget : ModuleWidget {
 
 		if (module->folderTreeData.size() > 0) {
 			menu->addChild(createSubmenuItem("Samples Browser", "", [=](Menu* menu) {
+				//module->folderTreeData.resize(1);
+				//module->folderTreeDisplay.resize(1);
 				module->refreshRootFolder();
 				for (unsigned int i = 1; i < module->folderTreeData[0].size(); i++) {
 					if (module->folderTreeData[0][i].substr(module->folderTreeData[0][i].length()-1, module->folderTreeData[0][i].length()-1) == "/")  {
@@ -3756,7 +3733,7 @@ struct SickoSampler2Widget : ModuleWidget {
 			}
 
 			menu->addChild(createMenuItem("", "Clear", [=]() {module->clearSlot();}));
-/*
+
 			menu->addChild(new MenuSeparator());
 			
 			menu->addChild(createMenuItem("Save FULL Sample", "", [=]() {module->menuSaveSample(SAVE_FULL);}));
@@ -3765,7 +3742,7 @@ struct SickoSampler2Widget : ModuleWidget {
 
 			menu->addChild(createBoolPtrMenuItem("Trim Sample after Save", "", &module->trimOnSave));
 			menu->addChild(createBoolPtrMenuItem("Save Oversampled", "", &module->saveOversampled));
-*/
+		
 		} else if (module->storedPath != "" && module->fileFound == false) {
 			menu->addChild(createMenuLabel("Sample ERROR:"));
 			menu->addChild(createMenuLabel(module->fileDescription));
@@ -3777,6 +3754,7 @@ struct SickoSampler2Widget : ModuleWidget {
 
 		if (module->userFolder != "") {
 			menu->addChild(createMenuLabel(module->userFolder));
+			//menu->addChild(createMenuItem("", "Refresh", [=]() {module->refreshRootFolder();}));
 		}
 
 		menu->addChild(new MenuSeparator());
