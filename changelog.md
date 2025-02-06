@@ -1,3 +1,7 @@
+### v0.5
+Changed plugin name to SickoCV according to VCV to work with patches saved with Metamodule-Hub on VCV-Rack  
+removed Toggler module for unknown issue on metamodule simulator  
+
 ### v0.4
 added following modules:  
 stepSeq  
