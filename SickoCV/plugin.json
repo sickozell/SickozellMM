@@ -1,7 +1,7 @@
 {
-  "slug": "Sickozell",
-  "name": "Sickozell",
-  "version": "0.4",
+  "slug": "SickoCV",
+  "name": "SickoCV",
+  "version": "0.5",
   "license": "GPL-3.0-or-later",
   "brand": "Sickozell",
   "author": "Sickozell",
@@ -639,7 +639,18 @@
         "Polyphonic"
       ]
     },*/
-    {
+    /*{
+      "slug": "Toggler",
+      "name": "toggler",
+      "description": "Stereo signal toggle switch router, with VCA and ASR envelope generator",
+      "tags": [
+        "Logic",
+        "Envelope generator",
+        "Voltage-controlled amplifier",
+        "Polyphonic"
+      ]
+    },*/
+    /*{
       "slug": "TogglerMM",
       "name": "togglerMM",
       "description": "Stereo signal toggle switch router, with VCA and ASR envelope generator",
@@ -649,7 +660,7 @@
         "Voltage-controlled amplifier",
         "Polyphonic"
       ]
-    },
+    },*/
     {
       "slug": "TogglerCompact",
       "name": "toggler Compact",

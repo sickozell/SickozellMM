@@ -80,7 +80,7 @@ extern Model* modelSwitcher;
 extern Model* modelSwitcherSt;
 extern Model* modelSwitcher8;
 //extern Model* modelToggler;
-extern Model* modelTogglerMM;
+//extern Model* modelTogglerMM;
 extern Model* modelTogglerCompact;
 extern Model* modelTrigSeq;
 //extern Model* modelTrigSeqPlus;

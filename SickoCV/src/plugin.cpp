@@ -10,10 +10,10 @@ Plugin *pluginInstance;
 #endif
 
 //void init(Plugin* p) {
-//void init_Sickozell(rack::Plugin *p) {
+//void init_SickoCV(rack::Plugin *p) {
 
 #if defined(METAMODULE_BUILTIN)
-void init_Sickozell(rack::Plugin *p) {
+void init_SickoCV(rack::Plugin *p) {
 #else 
 void init(rack::Plugin *p) {
 #endif
@@ -94,7 +94,7 @@ void init(rack::Plugin *p) {
 	p->addModel(modelSwitcherSt);
 	p->addModel(modelSwitcher8);
 	//p->addModel(modelToggler);
-	p->addModel(modelTogglerMM);
+	//p->addModel(modelTogglerMM);
 	p->addModel(modelTogglerCompact);
 	p->addModel(modelTrigSeq);
 	//p->addModel(modelTrigSeqPlus);

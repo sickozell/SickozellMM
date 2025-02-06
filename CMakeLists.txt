@@ -14,14 +14,14 @@ include(${METAMODULE_SDK_DIR}/plugin.cmake)
 
 ########################################################################################
 
-project(SickozellMM VERSION 0.4 DESCRIPTION "Sickozell for MetaModule" LANGUAGES C CXX ASM)
+project(SickozellMM VERSION 0.5 DESCRIPTION "Sickozell for MetaModule" LANGUAGES C CXX ASM)
 
-add_library(Sickozell STATIC)
+add_library(SickoCV STATIC)
 
 # Add sources from the Rack source repo
-set(SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/Sickozell)
+set(SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/SickoCV)
 
-target_sources(Sickozell PRIVATE
+target_sources(SickoCV PRIVATE
     ${SOURCE_DIR}/src/plugin.cpp 
     ${SOURCE_DIR}/src/Adder8.cpp
     ${SOURCE_DIR}/src/Bgates.cpp
@@ -76,19 +76,19 @@ target_sources(Sickozell PRIVATE
     ${SOURCE_DIR}/src/SwitcherSt.cpp
     ${SOURCE_DIR}/src/TogglerCompact.cpp
     #${SOURCE_DIR}/src/Toggler.cpp
-    ${SOURCE_DIR}/src/TogglerMM.cpp
+    #${SOURCE_DIR}/src/TogglerMM.cpp
     ${SOURCE_DIR}/src/TrigSeq.cpp
     #${SOURCE_DIR}/src/TrigSeqPlus.cpp
     #${SOURCE_DIR}/src/Wavetabler.cpp
 )
 
 # Add includes and compile options for source repo
-target_include_directories(Sickozell PRIVATE ${SOURCE_DIR}/src)
+target_include_directories(SickoCV PRIVATE ${SOURCE_DIR}/src)
 
 # Call this to link and create the plugin file
 create_plugin(
-    SOURCE_LIB      Sickozell                                          # The cmake target name (defined in add_target)
-    PLUGIN_NAME     Sickozell                                          # This must match the brand "slug" used in VCV Rack
+    SOURCE_LIB      SickoCV                                          # The cmake target name (defined in add_target)
+    PLUGIN_NAME     SickoCV                                         # This must match the brand "slug" used in VCV Rack
     PLUGIN_JSON     ${SOURCE_DIR}/plugin.json                         # Path to the plugin.json file used by VCV Rack
     SOURCE_ASSETS   ${CMAKE_CURRENT_LIST_DIR}/assets                  # Path to the assets/ dir containing the PNGs
     DESTINATION     ${CMAKE_CURRENT_LIST_DIR}/metamodule-plugin   # Path to where you want the plugin file output
