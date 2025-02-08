@@ -2,9 +2,7 @@
 
 SickozellMM is a 4ms metamodule port of SickoCV plugin for VCV rack.
 
-It is built to work with metamodule firmware v2.0 (not tested with previous ones)
-
-Modules name ending with "L" stands for 'lite edition' and means that is optimized to work monophonic instead of regular SickoCV polyphonic modules, just to save CPU on Metamodule hardware.
+It is built to work with metamodule firmware v2.0.0-dev-11.0
 
 ## **Consider donating**  
 The work necessary to develop these modules required many hours of work and many sleepless nights.  
