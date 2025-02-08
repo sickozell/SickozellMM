@@ -875,6 +875,7 @@ struct SickoSampler2 : Module {
 		static const char FILE_FILTERS[] = "Wave (.wav):wav,WAV";
 		osdialog_filters* filters = osdialog_filters_parse(FILE_FILTERS);
 		DEFER({osdialog_filters_free(filters);});
+
 #if defined(METAMODULE)
 		async_osdialog_file(OSDIALOG_SAVE, NULL, NULL, filters, [=, this](char *path) {
 #else
@@ -895,6 +896,7 @@ struct SickoSampler2 : Module {
 		channels = fileChannels;
 		fileLoaded = true;
 		free(path);
+		
 #if defined(METAMODULE)
 		});
 #endif

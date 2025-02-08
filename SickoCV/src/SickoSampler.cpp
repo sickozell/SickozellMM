@@ -1011,10 +1011,11 @@ struct SickoSampler : Module {
 		static const char FILE_FILTERS[] = "Wave (.wav):wav,WAV";
 		osdialog_filters* filters = osdialog_filters_parse(FILE_FILTERS);
 		DEFER({osdialog_filters_free(filters);});
+
 #if defined(METAMODULE)
-		async_osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters, [=, this](char *path) {
+		async_osdialog_file(OSDIALOG_SAVE, NULL, NULL, filters, [=, this](char *path) {
 #else
-		char *path = osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters);
+		char *path = osdialog_file(OSDIALOG_SAVE, NULL, NULL, filters);
 #endif
 
 		if (path) {

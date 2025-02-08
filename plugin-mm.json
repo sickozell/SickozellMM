@@ -97,22 +97,6 @@
 			"slug": "Holder8",
 			"name": "holder8"
 		},
-		/*{
-			"slug": "EnverL",
-			"name": "enver lite"
-		},
-		{
-			"slug": "HolderL",
-			"name": "holder lite"
-		},
-		{
-			"slug": "HolderCompactL",
-			"name": "holder Compact lite"
-		},
-		{
-			"slug": "Holder8L",
-			"name": "holder8 lite"
-		},*/
 		{
 			"slug": "KeySampler",
 			"name": "keySampler"
@@ -137,22 +121,6 @@
 			"slug": "MultiRouter",
 			"name": "multiRouter"
 		},
-		/*{
-			"slug": "MultiSwitcherL",
-			"name": "multiSwitcher lite"
-		},
-		{
-			"slug": "MultiSwitcherML",
-			"name": "multiSwitcher mono lite"
-		},
-		{
-			"slug": "MultiRouterL",
-			"name": "multiRouter lite"
-		},
-		{
-			"slug": "MultiRouterML",
-			"name": "multiRouter mono lite"
-		},*/
 		{
 			"slug": "Parking",
 			"name": "parking"
@@ -173,10 +141,6 @@
 			"slug": "PolyMuter16Plus",
 			"name": "polyMuter16+"
 		},
-		/*{
-			"slug": "RandLoops",
-			"name": "randLoops"
-		},*/
 		{
 			"slug": "Shifter",
 			"name": "shifter"
@@ -193,21 +157,9 @@
 			"slug": "SickoCrosser4",
 			"name": "sickoCrosser4"
 		},
-		/*{
-			"slug": "SickoAmpL",
-			"name": "sickoAmp lite"
-		},
-		{
-			"slug": "SickoCrosserL",
-			"name": "sickoCrosser lite"
-		},
-		{
-			"slug": "SickoCrosser4L",
-			"name": "sickoCrosser4 lite"
-		},*/
 		{
 			"slug": "SickoLooper1",
-			"name": "sickoLooper1",
+			"name": "sickoLooper1"
 		},
 		{
 			"slug": "SickoLooper1Exp",
@@ -217,10 +169,10 @@
 			"slug": "SickoLooper3",
 			"name": "sickoLooper3"
 		},
-		/*{
+		{
 			"slug": "SickoLooper5",
 			"name": "sickoLooper5"
-		},*/
+		},
 		{
 			"slug": "SickoPlayer",
 			"name": "sickoPlayer"
@@ -233,14 +185,6 @@
 			"slug": "SickoQuant4",
 			"name": "sickoQuant4"
 		},
-		/*{
-			"slug": "SickoQuantL",
-			"name": "sickoQuant lite"
-		},
-		{
-			"slug": "SickoQuant4L",
-			"name": "sickoQuant4 lite"
-		},*/
 		{
 			"slug": "SickoSampler",
 			"name": "sickoSampler"
@@ -257,10 +201,6 @@
 			"slug": "Slewer",
 			"name": "slewer"
 		},
-		/*{
-			"slug": "SlewerL",
-			"name": "slewer lite"
-		},*/
 		{
 			"slug": "StepSeq",
 			"name": "stepSeq",
@@ -285,25 +225,21 @@
 			"slug": "TogglerCompact",
 			"name": "toggler Compact"
 		},
-		{
+		/*{
 			"slug": "Toggler",
 			"name": "toggler"
-		},
-		/*{
-			"slug": "TogglerMM",
-			"name": "togglerMM"
 		},*/
 		{
 			"slug": "TrigSeq",
-			"name": "trigSeq",
+			"name": "trigSeq"
 		},
 		{
 			"slug": "TrigSeqPlus",
-			"name": "trigSeq+",
+			"name": "trigSeq+"
 		},
 		{
 			"slug": "WaveTabler",
-			"name": "waveTabler",
+			"name": "waveTabler"
 		}
 		
 	]

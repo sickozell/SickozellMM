@@ -65,7 +65,7 @@ void init(rack::Plugin *p) {
 	p->addModel(modelSickoLooper1);
 	p->addModel(modelSickoLooper1Exp);
 	p->addModel(modelSickoLooper3);
-	//p->addModel(modelSickoLooper5);
+	p->addModel(modelSickoLooper5);
 	p->addModel(modelSickoPlayer);
 	p->addModel(modelSickoQuant);
 	p->addModel(modelSickoQuant4);
@@ -78,7 +78,7 @@ void init(rack::Plugin *p) {
 	p->addModel(modelSwitcher);
 	p->addModel(modelSwitcherSt);
 	p->addModel(modelSwitcher8);
-	p->addModel(modelToggler);
+	//p->addModel(modelToggler);
 	p->addModel(modelTogglerCompact);
 	p->addModel(modelTrigSeq);
 	p->addModel(modelTrigSeqPlus);

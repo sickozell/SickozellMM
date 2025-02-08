@@ -382,14 +382,14 @@
         "Sampler"
       ]
     },
-    /*{
+    {
       "slug": "SickoLooper5",
       "name": "sickoLooper5",
       "description": "5 track looper with builtin clock generator, click and meter",
       "tags": [
         "Sampler"
       ]
-    },*/
+    },
     {
       "slug": "SickoPlayer",
       "name": "sickoPlayer",
@@ -500,7 +500,7 @@
         "Quad"
       ]
     },
-    {
+    /*{
       "slug": "Toggler",
       "name": "toggler",
       "description": "Stereo signal toggle switch router, with VCA and ASR envelope generator",
@@ -510,7 +510,7 @@
         "Voltage-controlled amplifier",
         "Polyphonic"
       ]
-    },
+    },*/
     {
       "slug": "TogglerCompact",
       "name": "toggler Compact",
