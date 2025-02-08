@@ -562,8 +562,13 @@ struct KeySampler : Module {
 	bool prevPrevSample = false;
 
 	bool unlimitedRecording = false;
+
+#if defined(METAMODULE)
+	const drwav_uint64 recordingLimit = 48000 * 2 * 60; // 60 sec limit on MM = 5.5MB
+#else
 	const drwav_uint64 recordingLimit = 52428800 * 2;
-	//const drwav_uint64 recordingLimit = 480000 * 2; // 10 sec for test purposes
+	// const drwav_uint64 recordingLimit = 480000 * 2; // 10 sec for test purposes
+#endif
 	
 	drwav_uint64 currentRecordingLimit = recordingLimit;
 
@@ -1180,7 +1185,6 @@ struct KeySampler : Module {
 #else
 		char *path = osdialog_file(OSDIALOG_OPEN_DIR, prevFolder, NULL, NULL);
 #endif
-
 		if (path) {
 			folderTreeData.clear();
 			folderTreeDisplay.clear();
@@ -1477,8 +1481,6 @@ struct KeySampler : Module {
 																							██████╔╝██║░░██║░░╚██╔╝░░███████╗
 																							╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░╚══════╝
 */
-
-/*
 	void menuSaveSample(int mode, int slot) {
 		fileChannels[slot] = channels[slot];
 		fileLoaded[slot] = false;
@@ -1486,11 +1488,10 @@ struct KeySampler : Module {
 		osdialog_filters* filters = osdialog_filters_parse(FILE_FILTERS);
 		DEFER({osdialog_filters_free(filters);});
 #if defined(METAMODULE)
-		async_osdialog_file(OSDIALOG_SAVE, NULL, NULL, filters, [this](char *path) {
+		async_osdialog_file(OSDIALOG_SAVE, NULL, NULL, filters, [=, this](char *path) {
 #else
 		char *path = osdialog_file(OSDIALOG_SAVE, NULL, NULL, filters);
 #endif
-		
 		if (path) {
 			saveMode = mode;
 			saveSample(path, slot);
@@ -1506,7 +1507,7 @@ struct KeySampler : Module {
 		});
 #endif
 	};
-*/
+
 	void saveSample(std::string path, int slot) {
 
 		std::string newPath = path;
@@ -1678,7 +1679,6 @@ struct KeySampler : Module {
 #else
 		char *path = osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters);
 #endif
-
 		fileLoaded[slot] = false;
 		restoreLoadFromPatch[slot] = false;
 		if (path) {
@@ -4118,11 +4118,11 @@ struct KeySamplerDisplay : TransparentWidget {
 					menu->addChild(createMenuLabel(tempDisplay));
 
 				menu->addChild(createMenuItem("", "Clear", [=]() {module->clearSlot(module->currSlot);}));
-/*
+
 				menu->addChild(createMenuItem("Save FULL Sample", "", [=]() {module->menuSaveSample(SAVE_FULL, module->currSlot);}));
 				menu->addChild(createMenuItem("Save CUE Region", "", [=]() {module->menuSaveSample(SAVE_CUE, module->currSlot);}));
 				menu->addChild(createMenuItem("Save LOOP Region", "", [=]() {module->menuSaveSample(SAVE_LOOP, module->currSlot);}));
-*/
+
 				/*
 				menu->addChild(createBoolPtrMenuItem("Trim Sample after Save", "", &module->trimOnSave));
 				menu->addChild(createBoolPtrMenuItem("Save Oversampled", "", &module->saveOversampled));
@@ -4510,7 +4510,9 @@ struct KeySamplerWidget : ModuleWidget {
 
 		menu->addChild(new MenuSeparator());
 		menu->addChild(createBoolPtrMenuItem("Store Sample in Patch", "", &module->sampleInPatch));
+#if !defined(METAMODULE)
 		menu->addChild(createBoolPtrMenuItem("Unlimited REC (risky)", "", &module->unlimitedRecording));
+#endif
 	}
 };
 

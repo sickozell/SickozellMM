@@ -171,6 +171,13 @@ struct Wavetabler : Module {
 	const float maxAdsrTime = 10.f;
 	const float minAdsrTime = 0.001f;
 
+#if defined(METAMODULE)
+	const drwav_uint64 recordingLimit = 48000 * 60; // 60 sec limit on MM = 5.5MB
+#else
+	const drwav_uint64 recordingLimit = 52428800;
+	// const drwav_uint64 recordingLimit = 480000; // 10 sec for test purposes
+#endif
+
 	Wavetabler() {
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
 
@@ -358,7 +365,6 @@ struct Wavetabler : Module {
 #else
 		char *path = osdialog_file(OSDIALOG_OPEN_DIR, prevFolder, NULL, NULL);
 #endif
-
 		if (path) {
 			folderTreeData.clear();
 			folderTreeDisplay.clear();
@@ -497,7 +503,6 @@ struct Wavetabler : Module {
 #else
 		char *path = osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters);
 #endif
-
 		fileLoaded = false;
 		restoreLoadFromPatch = false;
 		if (path) {
@@ -535,8 +540,13 @@ struct Wavetabler : Module {
 			playBuffer[1].clear();
 			displayBuff.clear();
 
+			/*
 			if (tsc > 52428800)
 				tsc = 52428800;	// set memory allocation limit to 200Mb for samples (~18mins at 48.000khz MONO)
+			*/
+
+			if (tsc > recordingLimit)
+				tsc = recordingLimit;
 
 			for (unsigned int i=0; i < tsc; i = i + c) {
 				playBuffer[0].push_back(pSampleData[i] * 5);

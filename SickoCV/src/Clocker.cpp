@@ -556,7 +556,6 @@ struct Clocker : Module {
 #else
 		char *path = osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters);
 #endif
-
 		fileLoaded[slot] = false;
 		if (path) {
 			/*

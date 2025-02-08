@@ -544,7 +544,6 @@ struct StepSeqPlus : Module {
 #else
 		char *path = osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters);
 #endif
-
 		if (path)
 			loadPreset(path);
 
@@ -586,7 +585,6 @@ struct StepSeqPlus : Module {
 #else
 		char *path = osdialog_file(OSDIALOG_SAVE, NULL, NULL, filters);
 #endif
-
 		if (path) {
 			std::string strPath = path;
 			if (strPath.substr(strPath.size() - 4) != ".ssp" and strPath.substr(strPath.size() - 4) != ".SSP")

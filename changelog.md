@@ -1,3 +1,6 @@
+### v0.7
+changed the sample limit to 5.5 Mb on sampler modules to avoid running out of memory
+
 ### v0.6
 used metemodule-v2.0.0.0-dev-11.0 build
 replaced 'light' versions of modules with regular versions

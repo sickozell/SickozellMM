@@ -408,6 +408,13 @@ struct SickoLooper1Exp : Module {
 	bool prevExtConn = true;
 	bool extBeat = false;
 	*/
+
+#if defined(METAMODULE)
+	const drwav_uint64 recordingLimit = 48000 * 60; // 60 sec limit on MM = 5.5MB
+#else
+	const drwav_uint64 recordingLimit = 52428800;
+	// const drwav_uint64 recordingLimit = 480000; // 10 sec for test purposes
+#endif
 	
 	// ***************************************************************************************************
 	// ***************************************************************************************************
@@ -766,11 +773,10 @@ struct SickoLooper1Exp : Module {
 		osdialog_filters* filters = osdialog_filters_parse(FILE_FILTERS);
 		DEFER({osdialog_filters_free(filters);});
 #if defined(METAMODULE)
-		async_osdialog_file(OSDIALOG_SAVE, NULL, NULL, filters, [this](char *path) {
+		async_osdialog_file(OSDIALOG_SAVE, NULL, NULL, filters, [=, this](char *path) {
 #else
 		char *path = osdialog_file(OSDIALOG_SAVE, NULL, NULL, filters);
 #endif
-		
 		if (path)
 			saveSample(path);
 
@@ -833,7 +839,6 @@ struct SickoLooper1Exp : Module {
 #else
 		char *path = osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters);
 #endif
-		
 		if (path)
 			loadSample(path);
 
@@ -887,8 +892,13 @@ struct SickoLooper1Exp : Module {
 			tempBuffer[LEFT].clear();
 			tempBuffer[RIGHT].clear();
 
+			/*
 			if (tsc > 52428800)
 				tsc = 52428800;	// set memory allocation limit to 200Mb for samples (~18mins at 48.000khz MONO)
+			*/
+
+			if (tsc > recordingLimit)
+				tsc = recordingLimit;
 
 			if (fileSampleRate == sampleRate) {			//  **************************   NO RESAMPLE   ************************
 				for (unsigned int i=0; i < tsc; i = i + c) {

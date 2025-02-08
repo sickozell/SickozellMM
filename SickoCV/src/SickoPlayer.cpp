@@ -268,8 +268,13 @@ struct SickoPlayer : Module {
 	bool prevPrevSample = false;
 
 	bool unlimitedRecording = false;
-	const drwav_uint64 recordingLimit = 52428800 * 2;	// // set memory allocation limit to 200Mb for samples (~18mins at 48.000khz MONO)
-	//const drwav_uint64 recordingLimit = 480000 * 2; // 10 sec for test purposes
+#if defined(METAMODULE)
+	const drwav_uint64 recordingLimit = 48000 * 2 * 60; // 60 sec limit on MM = 5.5MB
+#else
+	const drwav_uint64 recordingLimit = 52428800 * 2; // set memory allocation limit to 200Mb for samples (~18mins at 48.000khz MONO)
+	// const drwav_uint64 recordingLimit = 480000; // 10 sec for test purposes
+#endif
+
 	drwav_uint64 currentRecordingLimit = recordingLimit;
 
 	static constexpr float minStageTime = 1.f;  // in milliseconds
@@ -564,7 +569,6 @@ struct SickoPlayer : Module {
 #else
 		char *path = osdialog_file(OSDIALOG_OPEN_DIR, prevFolder, NULL, NULL);
 #endif
-
 		if (path) {
 			folderTreeData.clear();
 			folderTreeDisplay.clear();
@@ -703,7 +707,6 @@ struct SickoPlayer : Module {
 #else
 		char *path = osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters);
 #endif
-
 		fileLoaded = false;
 		restoreLoadFromPatch = false;
 		if (path) {

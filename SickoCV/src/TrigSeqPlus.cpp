@@ -213,9 +213,6 @@ struct TrigSeqPlus : Module {
 	int cbSteps = 16;
 	int cbRst = 1;
 
-
-
-
 	TrigSeqPlus() {
 		config(PARAMS_LEN, INPUTS_LEN, OUTPUTS_LEN, LIGHTS_LEN);
 		configSwitch(MODE_SWITCH, 0.f, 1.f, 1.f, "Mode", {"Cv", "Clock"});
@@ -398,7 +395,7 @@ struct TrigSeqPlus : Module {
 			lights[STEP_LIGHT+step].setBrightness(1);
 
 		} 
-		
+
 		json_t* initStartJ = json_object_get(rootJ, "initStart");
 		if (initStartJ) {
 			initStart = json_boolean_value(initStartJ);
@@ -567,7 +564,6 @@ struct TrigSeqPlus : Module {
 #else
 		char *path = osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters);
 #endif
-
 		if (path)
 			loadPreset(path);
 
@@ -609,7 +605,6 @@ struct TrigSeqPlus : Module {
 #else
 		char *path = osdialog_file(OSDIALOG_SAVE, NULL, NULL, filters);
 #endif
-
 		if (path) {
 			std::string strPath = path;
 			if (strPath.substr(strPath.size() - 4) != ".tsp" and strPath.substr(strPath.size() - 4) != ".TSP")
@@ -684,7 +679,6 @@ struct TrigSeqPlus : Module {
 
 		//for (int i = 0; i < 16; i++)
 		//	lights[STEPBUT_LIGHT+i].setBrightness(params[STEP_PARAM+i].getValue());
-
 
 		// ----------- AUTO SWITCH
 
@@ -1370,9 +1364,9 @@ struct TrigSeqPlusWidget : ModuleWidget {
 			}));
 		}));
 
-
 		menu->addChild(new MenuSeparator());
 		menu->addChild(createBoolPtrMenuItem("Initialize on Start", "", &module->initStart));
+
 	}
 
 };

@@ -506,7 +506,6 @@ struct DrumPlayerXtra : Module {
 #else
 		char *path = osdialog_file(OSDIALOG_OPEN_DIR, prevFolder, NULL, NULL);
 #endif
-
 		if (path) {
 			folderTreeData.clear();
 			folderTreeDisplay.clear();
@@ -793,7 +792,6 @@ struct DrumPlayerXtra : Module {
 #else
 		char *path = osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters);
 #endif
-
 		fileLoaded[slot] = false;
 		restoreLoadFromPatch[slot] = false;
 		if (path) {

@@ -415,6 +415,13 @@ struct SickoLooper3 : Module {
 	bool extConn = false;
 	bool prevExtConn = true;
 	bool extBeat = false;
+
+#if defined(METAMODULE)
+	const drwav_uint64 recordingLimit = 48000 * 60; // 60 sec limit on MM = 5.5MB
+#else
+	const drwav_uint64 recordingLimit = 52428800;
+	// const drwav_uint64 recordingLimit = 480000; // 10 sec for test purposes
+#endif
 	
 	// ***************************************************************************************************
 	// ***************************************************************************************************
@@ -904,7 +911,6 @@ struct SickoLooper3 : Module {
 #else
 		char *path = osdialog_file(OSDIALOG_SAVE, NULL, NULL, filters);
 #endif
-
 		if (path)
 			saveSample(track, path);
 
@@ -967,7 +973,6 @@ struct SickoLooper3 : Module {
 #else
 		char *path = osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters);
 #endif
-		
 		if (path)
 			loadSample(track, path);
 
@@ -1025,8 +1030,13 @@ struct SickoLooper3 : Module {
 			tempBuffer[LEFT].clear();
 			tempBuffer[RIGHT].clear();
 
+			/*
 			if (tsc > 52428800)
 				tsc = 52428800;	// set memory allocation limit to 200Mb for samples (~18mins at 48.000khz MONO)
+			*/
+
+			if (tsc > recordingLimit)
+				tsc = recordingLimit;
 
 			if (fileSampleRate == sampleRate) {			//  **************************   NO RESAMPLE   ************************
 				for (unsigned int i=0; i < tsc; i = i + c) {
@@ -1496,7 +1506,6 @@ struct SickoLooper3 : Module {
 #else
 		char *path = osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters);
 #endif
-
 		if (path)
 			loadPreset(path);
 
@@ -1557,7 +1566,6 @@ struct SickoLooper3 : Module {
 #else
 		char *path = osdialog_file(OSDIALOG_SAVE, NULL, NULL, filters);
 #endif
-		
 		if (path) {
 			std::string strPath = path;
 			if (strPath.substr(strPath.size() - 4) != ".slp" and strPath.substr(strPath.size() - 4) != ".SLP")
@@ -1650,7 +1658,6 @@ struct SickoLooper3 : Module {
 #else
 		char *path = osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters);
 #endif
-
 		clickFileLoaded[slot] = false;
 		if (path) {
 			/*

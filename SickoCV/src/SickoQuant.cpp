@@ -552,7 +552,6 @@ struct SickoQuant : Module {
 #else
 		char *path = osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters);
 #endif
-
 		if (path)
 			loadPreset(path);
 
@@ -560,7 +559,6 @@ struct SickoQuant : Module {
 #if defined(METAMODULE)
 		});
 #endif
-
 	}
 
 	void loadPreset(std::string path) {
@@ -595,7 +593,6 @@ struct SickoQuant : Module {
 #else
 		char *path = osdialog_file(OSDIALOG_SAVE, NULL, NULL, filters);
 #endif
-
 		if (path) {
 			std::string strPath = path;
 			if (strPath.substr(strPath.size() - 4) != ".sqn" and strPath.substr(strPath.size() - 4) != ".SQN")
