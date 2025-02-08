@@ -1,6 +1,11 @@
+### v0.6
+used metemodule-v2.0.0.0-dev-11.0 build
+replaced 'light' versions of modules with regular versions
+added sickoLooper5 module
+
 ### v0.5
 Changed plugin name to SickoCV according to VCV to work with patches saved with Metamodule-Hub on VCV-Rack  
-removed Toggler module for unknown issue on metamodule simulator  
+Removed Toggler module for conflict issue on metamodule simulator
 
 ### v0.4
 added following modules:  

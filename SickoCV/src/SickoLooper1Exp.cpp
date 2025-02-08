@@ -41,15 +41,18 @@
 
 #include "plugin.hpp"
 #include "SickoLooper1Exp.hpp"
-//#include "osdialog.h"
+#include "osdialog.h"
+#if defined(METAMODULE)
+#include "async_filebrowser.hh"
+#endif
 //#define DR_WAV_IMPLEMENTATION
 #include "dr_wav.h"
 #include <vector>
 #include "cmath"
-//#include <dirent.h>
-//#include <libgen.h>
-//#include <sys/types.h>
-//#include <sys/stat.h>
+#include <dirent.h>
+#include <libgen.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 using namespace std;
 
@@ -536,7 +539,7 @@ struct SickoLooper1Exp : Module {
 
 	void onReset(const ResetEvent &e) override {
 
-		//system::removeRecursively(getPatchStorageDirectory().c_str());
+		system::removeRecursively(getPatchStorageDirectory().c_str());
 
 		globalStatus = IDLE;
 		sendStatus = IDLE;
@@ -569,7 +572,7 @@ struct SickoLooper1Exp : Module {
 
 		Module::onReset(e);
 	}
-/*
+
 	void onAdd(const AddEvent& e) override {
 		std::string path;
 
@@ -592,7 +595,6 @@ struct SickoLooper1Exp : Module {
 
 		Module::onSave(e);
 	}
-*/
 
 /*
 
@@ -759,17 +761,23 @@ struct SickoLooper1Exp : Module {
 																							██████╔╝██║░░██║░░╚██╔╝░░███████╗
 																							╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░╚══════╝
 */
-
-/*
 	void menuSaveSample() {
 		static const char FILE_FILTERS[] = "Wave (.wav):wav,WAV";
 		osdialog_filters* filters = osdialog_filters_parse(FILE_FILTERS);
 		DEFER({osdialog_filters_free(filters);});
+#if defined(METAMODULE)
+		async_osdialog_file(OSDIALOG_SAVE, NULL, NULL, filters, [this](char *path) {
+#else
 		char *path = osdialog_file(OSDIALOG_SAVE, NULL, NULL, filters);
+#endif
+		
 		if (path)
 			saveSample(path);
 
 		free(path);
+#if defined(METAMODULE)
+		});
+#endif
 	};
 
 	void saveSample(std::string path) {
@@ -805,9 +813,6 @@ struct SickoLooper1Exp : Module {
 		data.clear();
 		
 	}
-
-*/
-
 /*
 
 																					██╗░░░░░░█████╗░░█████╗░██████╗░
@@ -818,12 +823,16 @@ struct SickoLooper1Exp : Module {
 																					╚══════╝░╚════╝░╚═╝░░╚═╝╚═════╝░
 */
 
-/*
+
 	void menuLoadSample() {
 		static const char FILE_FILTERS[] = "Wave (.wav):wav,WAV;All files (*.*):*.*";
 		osdialog_filters* filters = osdialog_filters_parse(FILE_FILTERS);
 		DEFER({osdialog_filters_free(filters);});
+#if defined(METAMODULE)
+		async_osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters, [=, this](char *path) {
+#else
 		char *path = osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters);
+#endif
 		
 		if (path)
 			loadSample(path);
@@ -836,6 +845,9 @@ struct SickoLooper1Exp : Module {
 		free(path);
 
 		fileLoaded = false;
+#if defined(METAMODULE)
+		});
+#endif
 	}
 
 	void loadSample(std::string path) {
@@ -1035,7 +1047,7 @@ struct SickoLooper1Exp : Module {
 			setIdleLed();
 		} 
 	};
-*/
+
 
 //
 //																							██████╗░██████╗░███████╗░██████╗███████╗████████╗
@@ -3484,14 +3496,18 @@ struct SickoLooper1ExpDisplayLoop1 : TransparentWidget {
 			}));
 
 			/*
+			if (module->trackStatus != EMPTY)
+				menu->addChild(createMenuItem("Detect tempo and set bpm", "", [=]() {module->detectTempo();}));
+			else
+				menu->addChild(createMenuLabel("Detect tempo and set bpm"));
+			*/
+
 			menu->addChild(new MenuSeparator());
 			menu->addChild(createMenuItem("Import Wav", "", [=]() {module->menuLoadSample();}));
 			if (module->trackStatus != EMPTY)
 				menu->addChild(createMenuItem("Export Wav", "", [=]() {module->menuSaveSample();}));
 			else
 				menu->addChild(createMenuLabel("Export Wav"));
-
-			*/
 		}
 	}
 };
@@ -3727,6 +3743,11 @@ struct SickoLooper1ExpWidget : ModuleWidget {
 			}));
 
 			/*
+			if (module->trackStatus != EMPTY)
+				menu->addChild(createMenuItem("Detect tempo and set bpm", "", [=]() {module->detectTempo();}));
+			else
+				menu->addChild(createMenuLabel("Detect tempo and set bpm"));
+			*/
 
 			menu->addChild(new MenuSeparator());
 			menu->addChild(createMenuItem("Import Wav", "", [=]() {module->menuLoadSample();}));
@@ -3734,10 +3755,14 @@ struct SickoLooper1ExpWidget : ModuleWidget {
 				menu->addChild(createMenuItem("Export Wav", "", [=]() {module->menuSaveSample();}));
 			else
 				menu->addChild(createMenuLabel("Export Wav"));
-			*/
-
 		}));
 
+		/*
+		menu->addChild(new MenuSeparator());
+		menu->addChild(createMenuItem("Load preset (+loops)", "", [=]() {module->menuLoadPreset();}));
+		menu->addChild(createMenuItem("Save preset", "", [=]() {module->menuSavePreset(false);}));
+		menu->addChild(createMenuItem("Save preset + loops", "", [=]() {module->menuSavePreset(true);}));
+		*/
 
 	}
 };

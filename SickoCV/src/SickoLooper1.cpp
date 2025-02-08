@@ -45,11 +45,14 @@
 #include "plugin.hpp"
 #include "SickoLooper1Exp.hpp"
 #include "osdialog.h"
-#define DR_WAV_IMPLEMENTATION
+#if defined(METAMODULE)
+#include "async_filebrowser.hh"
+#endif
+//#define DR_WAV_IMPLEMENTATION
 #include "dr_wav.h"
 #include <vector>
 #include "cmath"
-//#include <dirent.h>
+#include <dirent.h>
 #include <libgen.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -592,22 +595,18 @@ struct SickoLooper1 : Module {
 		json_t *clickSlot1J = json_object_get(rootJ, "ClickSlot1");
 		if (clickSlot1J) {
 			clickStoredPath[0] = json_string_value(clickSlot1J);
-			/*
 			if (clickStoredPath[0] == "")
 				clickClearSlot(0);
 			else
 				clickLoadSample(clickStoredPath[0], 0, true);
-			*/
 		}
 		json_t *clickSlot2J = json_object_get(rootJ, "ClickSlot2");
 		if (clickSlot2J) {
 			clickStoredPath[1] = json_string_value(clickSlot2J);
-			/*
 			if (clickStoredPath[1] == "")
 				clickClearSlot(1);
 			else
 				clickLoadSample(clickStoredPath[1], 1, true);
-			*/
 		}
 
 		json_t* clickSelectJ = json_object_get(rootJ, "clickSelect");
@@ -622,7 +621,7 @@ struct SickoLooper1 : Module {
 
 	void onReset(const ResetEvent &e) override {
 
-		//system::removeRecursively(getPatchStorageDirectory().c_str());
+		system::removeRecursively(getPatchStorageDirectory().c_str());
 
 		eolPulseOnStop = false;
 		playSequence = 0;
@@ -656,7 +655,6 @@ struct SickoLooper1 : Module {
 		Module::onReset(e);
 	}
 
-	/*
 	void onAdd(const AddEvent& e) override {
 		std::string path ;
 
@@ -681,7 +679,6 @@ struct SickoLooper1 : Module {
 
 		Module::onSave(e);
 	}
-	*/
 
 
 /*
@@ -725,7 +722,6 @@ struct SickoLooper1 : Module {
 			}
 			*/
 			setClick(clickSelect);
-			
 
 			if (trackStatus != EMPTY) {
 				double resampleCoeff;
@@ -860,17 +856,23 @@ struct SickoLooper1 : Module {
 //																							██████╔╝██║░░██║░░╚██╔╝░░███████╗
 //																							╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░╚══════╝
 
-
-/*
 	void menuSaveSample() {
 		static const char FILE_FILTERS[] = "Wave (.wav):wav,WAV";
 		osdialog_filters* filters = osdialog_filters_parse(FILE_FILTERS);
 		DEFER({osdialog_filters_free(filters);});
+#if defined(METAMODULE)
+		async_osdialog_file(OSDIALOG_SAVE, NULL, NULL, filters, [this](char *path) {
+#else
 		char *path = osdialog_file(OSDIALOG_SAVE, NULL, NULL, filters);
+#endif
+		
 		if (path)
 			saveSample(path);
 
 		free(path);
+#if defined(METAMODULE)
+		});
+#endif
 	};
 
 	void saveSample(std::string path) {
@@ -908,8 +910,6 @@ struct SickoLooper1 : Module {
 		data.clear();
 		
 	}
-*/
-
 /*
 
 																					██╗░░░░░░█████╗░░█████╗░██████╗░
@@ -920,12 +920,15 @@ struct SickoLooper1 : Module {
 																					╚══════╝░╚════╝░╚═╝░░╚═╝╚═════╝░
 */
 
-/*
 	void menuLoadSample() {
 		static const char FILE_FILTERS[] = "Wave (.wav):wav,WAV;All files (*.*):*.*";
 		osdialog_filters* filters = osdialog_filters_parse(FILE_FILTERS);
 		DEFER({osdialog_filters_free(filters);});
+#if defined(METAMODULE)
+		async_osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters, [=, this](char *path) {
+#else
 		char *path = osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters);
+#endif
 		
 		if (path)
 			loadSample(path);
@@ -940,6 +943,9 @@ struct SickoLooper1 : Module {
 		free(path);
 
 		fileLoaded = false;
+#if defined(METAMODULE)
+		});
+#endif
 	}
 
 	void loadSample(std::string path) {
@@ -1145,7 +1151,6 @@ struct SickoLooper1 : Module {
 		} 
 	};
 
-*/
 
 //
 //																							██████╗░██████╗░███████╗░██████╗███████╗████████╗
@@ -1447,13 +1452,22 @@ struct SickoLooper1 : Module {
 
 
 	void clickMenuLoadSample(int slot) {
-/*
 		static const char FILE_FILTERS[] = "Wave (.wav):wav,WAV;All files (*.*):*.*";
 		osdialog_filters* filters = osdialog_filters_parse(FILE_FILTERS);
 		DEFER({osdialog_filters_free(filters);});
+#if defined(METAMODULE)
+		async_osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters, [=, this](char *path) {
+#else
 		char *path = osdialog_file(OSDIALOG_OPEN, NULL, NULL, filters);
+#endif
+
 		clickFileLoaded[slot] = false;
 		if (path) {
+			/*
+			if (clickSelect == CLICK_CUSTOM)
+				clickLoadSample(path, slot, true);
+			clickStoredPath[slot] = std::string(path);
+			*/
 			clickLoadSample(path, slot, true);
 			clickStoredPath[slot] = std::string(path);
 			if (clickSelect != CLICK_CUSTOM)
@@ -1466,12 +1480,12 @@ struct SickoLooper1 : Module {
 			clickFileLoaded[slot] = false;
 		}
 		free(path);
-*/
+#if defined(METAMODULE)
+		});
+#endif
 	}
 
-
 	void clickLoadSample(std::string path, int slot, bool customClick) {
-
 		z1 = 0; z2 = 0;
 
 		unsigned int c;
@@ -1490,9 +1504,9 @@ struct SickoLooper1 : Module {
 			clickTempBuffer2.clear();
 
 			if (tsc > 96000)
-				tsc = 96000;	// set memory allocation limit to 96000 samples
+				tsc = 96000;	// set memory allocation limit to 96000 samples*/
 
-			if (sr == APP->engine->getSampleRate()) {			// - **************************   NO RESAMPLE   ************************
+			if (sr == APP->engine->getSampleRate()) {			//  **************************   NO RESAMPLE   ************************
 				for (unsigned int i=0; i < tsc; i = i + c) {
 					clickPlayBuffer[slot].push_back(pSampleData[i] * 5);
 				}
@@ -1502,7 +1516,7 @@ struct SickoLooper1 : Module {
 
 				clickSampleRate[slot] = APP->engine->getSampleRate();
 
-			} else {											//  - ***************** RESAMPLE ****************************************
+			} else {											// ***************** RESAMPLE ****************************************
 				for (unsigned int i=0; i < tsc; i = i + c) {
 					clickTempBuffer.push_back(pSampleData[i] * 5);
 					clickTempBuffer.push_back(0);
@@ -1584,14 +1598,13 @@ struct SickoLooper1 : Module {
 
 			char* pathDup = strdup(path.c_str());
 
-			/*
+			//if (clickSelect == CLICK_CUSTOM) {
 			if (customClick) {
 				clickFileDescription[slot] = basename(pathDup);
 
 				clickStoredPath[slot] = path;
 	
 			}
-			*/
 			clickFileLoaded[slot] = true;
 			free(pathDup);
 
@@ -1602,9 +1615,8 @@ struct SickoLooper1 : Module {
 				clickFileDescription[slot] = "(!)"+path;
 			}
 		}
-
 	};
-
+	
 
 	void clickClearSlot(int slot) {
 		clickStoredPath[slot] = "";
@@ -1617,18 +1629,11 @@ struct SickoLooper1 : Module {
 	}
 
 	void setClick(int clickNo) {
-
-		//float *loadSample (std::string which, size_t *size) {
-  		//FILE *in = fopen(asset::plugin(pluginInstance, which).c_str(), "rb");
-
-		clickLoadSample(asset::plugin(pluginInstance, "res/clicks/click0_beat.wav"), 0, false);
-		clickLoadSample(asset::plugin(pluginInstance, "res/clicks/click0_bar.wav"), 1, false);
-/*
 		switch (clickNo) {
 			case 0:
 				clickLoadSample(asset::plugin(pluginInstance, "res/clicks/click0_beat.wav"), 0, false);
 				clickLoadSample(asset::plugin(pluginInstance, "res/clicks/click0_bar.wav"), 1, false);
-							break;
+			break;
 
 			case 1:
 				clickLoadSample(asset::plugin(pluginInstance, "res/clicks/click1_beat.wav"), 0, false);
@@ -1649,10 +1654,9 @@ struct SickoLooper1 : Module {
 					clickLoadSample(clickStoredPath[1], 1, true);
 				else clickClearSlot(1);
 			break;
-
 		}
-*/
 	}
+
 
 //																													██╗░░░░░███████╗██████╗░
 //																													██║░░░░░██╔════╝██╔══██╗
@@ -4412,14 +4416,12 @@ struct SickoLooper1DisplayLoop1 : TransparentWidget {
 			else
 				menu->addChild(createMenuLabel("Detect tempo and set bpm"));
 
-			/*
 			menu->addChild(new MenuSeparator());
 			menu->addChild(createMenuItem("Import Wav", "", [=]() {module->menuLoadSample();}));
 			if (module->trackStatus != EMPTY)
 				menu->addChild(createMenuItem("Export Wav", "", [=]() {module->menuSaveSample();}));
 			else
 				menu->addChild(createMenuLabel("Export Wav"));
-			*/
 		}
 	}
 };
@@ -4841,17 +4843,21 @@ struct SickoLooper1Widget : ModuleWidget {
 					else
 						menu->addChild(createMenuLabel("Detect tempo and set bpm"));
 
-					/*
 					menu->addChild(new MenuSeparator());
 					menu->addChild(createMenuItem("Import Wav", "", [=]() {module->menuLoadSample();}));
 					if (module->trackStatus != EMPTY)
 						menu->addChild(createMenuItem("Export Wav", "", [=]() {module->menuSaveSample();}));
 					else
 						menu->addChild(createMenuLabel("Export Wav"));
-					*/
+
 				}));
 
-
+		/*
+		menu->addChild(new MenuSeparator());
+		menu->addChild(createMenuItem("Load preset (+loops)", "", [=]() {module->menuLoadPreset();}));
+		menu->addChild(createMenuItem("Save preset", "", [=]() {module->menuSavePreset(false);}));
+		menu->addChild(createMenuItem("Save preset + loops", "", [=]() {module->menuSavePreset(true);}));
+		*/
 
 		menu->addChild(new MenuSeparator());
 		menu->addChild(createBoolMenuItem("Internal Clock Always ON", "", [=]() {
@@ -4859,7 +4865,6 @@ struct SickoLooper1Widget : ModuleWidget {
 			}, [=](bool internalClockAlwaysOn) {
 				module->setInternalClock(internalClockAlwaysOn);
 		}));
-
 
 		struct ClickItem : MenuItem {
 			SickoLooper1* module;
@@ -4870,7 +4875,16 @@ struct SickoLooper1Widget : ModuleWidget {
 			}
 		};
 		menu->addChild(createSubmenuItem("Click Settings", "", [=](Menu * menu) {
-/*
+
+			/*
+			menu->addChild(createSubmenuItem("Click Presets", "", [=](Menu * menu) {
+				menu->addChild(createMenuItem("Standard", "", [=]() {module->setClick(0);}));
+				menu->addChild(createMenuItem("Click1", "", [=]() {module->setClick(1);}));
+				menu->addChild(createMenuItem("Click2", "", [=]() {module->setClick(2);}));
+			}));*/
+			
+
+			//menu->addChild(createMenuLabel("PLAY Button Sequence"));
 			std::string clickNames[4] = {"Standard", "Click1", "Click2", "Custom"};
 			for (int i = 0; i < 4; i++) {
 				ClickItem* clickItem = createMenuItem<ClickItem>(clickNames[i]);
@@ -4879,17 +4893,9 @@ struct SickoLooper1Widget : ModuleWidget {
 				clickItem->clickSelect = i;
 				menu->addChild(clickItem);
 			}
-*/
-			std::string clickNames[3] = {"Standard", "Click1", "Click2"};
-			for (int i = 0; i < 3; i++) {
-				ClickItem* clickItem = createMenuItem<ClickItem>(clickNames[i]);
-				clickItem->rightText = CHECKMARK(module->clickSelect == i);
-				clickItem->module = module;
-				clickItem->clickSelect = i;
-				menu->addChild(clickItem);
-			}
-/*
+
 			menu->addChild(new MenuSeparator());
+
 			menu->addChild(createMenuItem("Custom BEAT click", "", [=]() {module->clickMenuLoadSample(0);}));
 			menu->addChild(createMenuItem("File: " + module->clickFileDescription[0], "", [=]() {module->clickMenuLoadSample(0);}));
 			menu->addChild(createMenuItem("", "Clear", [=]() {module->clickClearSlot(0);}));
@@ -4897,8 +4903,8 @@ struct SickoLooper1Widget : ModuleWidget {
 			menu->addChild(createMenuItem("Custom BAR click", "", [=]() {module->clickMenuLoadSample(1);}));
 			menu->addChild(createMenuItem("File: " + module->clickFileDescription[1], "", [=]() {module->clickMenuLoadSample(1);}));
 			menu->addChild(createMenuItem("", "Clear", [=]() {module->clickClearSlot(1);}));
-*/
 		}));	
+
 	}
 };
 

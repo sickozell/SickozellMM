@@ -31,72 +31,56 @@ void init(rack::Plugin *p) {
 	p->addModel(modelBtogglerSt);
 	p->addModel(modelBtogglerStCompact);
 	p->addModel(modelBtoggler);
-	//p->addModel(modelBtogglerPlus);
+	p->addModel(modelBtogglerPlus);
 	p->addModel(modelCalcs);
-	//p->addModel(modelClocker);
+	p->addModel(modelClocker);
 	p->addModel(modelClocker2);
 	p->addModel(modelCVrouter);
 	p->addModel(modelCVswitcher);
 	p->addModel(modelDrummer);
 	p->addModel(modelDrummer4);
 	p->addModel(modelDrummer4Plus);
-	//p->addModel(modelDrumPlayer);
-	//p->addModel(modelDrumPlayerPlus);
-	//p->addModel(modelDrumPlayerXtra);
-	//p->addModel(modelEnver);
-	//p->addModel(modelHolder);
-	//p->addModel(modelHolderCompact);
-	//p->addModel(modelHolder8);
-	p->addModel(modelEnverL); // ---- extra
-	p->addModel(modelHolderL); // ---- extra
-	p->addModel(modelHolderCompactL); // ---- extra
-	p->addModel(modelHolder8L); // ---- extra
-	//p->addModel(modelKeySampler);
+	p->addModel(modelDrumPlayer);
+	p->addModel(modelDrumPlayerPlus);
+	p->addModel(modelDrumPlayerXtra);
+	p->addModel(modelEnver);
+	p->addModel(modelHolder);
+	p->addModel(modelHolderCompact);
+	p->addModel(modelHolder8);
+	p->addModel(modelKeySampler);
 	p->addModel(modelModulator);
 	p->addModel(modelModulator7);
 	p->addModel(modelModulator7Compact);
-	//p->addModel(modelMultiSwitcher);
-	//p->addModel(modelMultiRouter);
-	p->addModel(modelMultiSwitcherL); // ---- extra
-	p->addModel(modelMultiSwitcherML); // ---- extra
-	p->addModel(modelMultiRouterL); // ---- extra
-	p->addModel(modelMultiRouterML); // ---- extra
-	//p->addModel(modelParking);
-	//p->addModel(modelPolyMuter8);
-	//p->addModel(modelPolyMuter8Plus);
-	//p->addModel(modelPolyMuter16);
-	//p->addModel(modelPolyMuter16Plus);
-	p->addModel(modelRandLoops); // ---- extra
+	p->addModel(modelMultiSwitcher);
+	p->addModel(modelMultiRouter);
+	p->addModel(modelParking);
+	p->addModel(modelPolyMuter8);
+	p->addModel(modelPolyMuter8Plus);
+	p->addModel(modelPolyMuter16);
+	p->addModel(modelPolyMuter16Plus);
 	p->addModel(modelShifter);
-	//p->addModel(modelSickoAmp);
-	//p->addModel(modelSickoCrosser);
-	//p->addModel(modelSickoCrosser4);
-	p->addModel(modelSickoAmpL); // ---- extra
-	p->addModel(modelSickoCrosserL); // ---- extra
-	p->addModel(modelSickoCrosser4L); // ---- extra
+	p->addModel(modelSickoAmp);
+	p->addModel(modelSickoCrosser);
+	p->addModel(modelSickoCrosser4);
 	p->addModel(modelSickoLooper1);
 	p->addModel(modelSickoLooper1Exp);
-	//p->addModel(modelSickoLooper3);
-	//p->addModel(modelSickoLooper5);
-	//p->addModel(modelSickoPlayer);
-	//p->addModel(modelSickoQuant);
-	//p->addModel(modelSickoQuant4);
-	p->addModel(modelSickoQuantL); // ---- extra
-	p->addModel(modelSickoQuant4L); // ---- extra
-	//p->addModel(modelSickoSampler);
+	p->addModel(modelSickoLooper3);
+	p->addModel(modelSickoLooper5);
+	p->addModel(modelSickoPlayer);
+	p->addModel(modelSickoQuant);
+	p->addModel(modelSickoQuant4);
+	p->addModel(modelSickoSampler);
 	p->addModel(modelSickoSampler2);
 	p->addModel(modelSimpleSeq4);
-	//p->addModel(modelSlewer);
-	p->addModel(modelSlewerL);
+	p->addModel(modelSlewer);
 	p->addModel(modelStepSeq);
-	//p->addModel(modelStepSeqPlus);
+	p->addModel(modelStepSeqPlus);
 	p->addModel(modelSwitcher);
 	p->addModel(modelSwitcherSt);
 	p->addModel(modelSwitcher8);
 	//p->addModel(modelToggler);
-	//p->addModel(modelTogglerMM);
 	p->addModel(modelTogglerCompact);
 	p->addModel(modelTrigSeq);
-	//p->addModel(modelTrigSeqPlus);
-	//p->addModel(modelWavetabler);
+	p->addModel(modelTrigSeqPlus);
+	p->addModel(modelWavetabler);
 }

@@ -1,7 +1,7 @@
 {
   "slug": "SickoCV",
   "name": "SickoCV",
-  "version": "0.5",
+  "version": "2.7.0",
   "license": "GPL-3.0-or-later",
   "brand": "Sickozell",
   "author": "Sickozell",
@@ -77,7 +77,7 @@
         "Logic"
       ]
     },
-    /*{
+    {
       "slug": "BtogglerPlus",
       "name": "bToggler8+",
       "description": "8 buffered toggle switch router, plus warnings to use with led midi controllers",
@@ -85,7 +85,7 @@
         "Logic",
         "Utility"
       ]
-    },*/
+    },
     {
       "slug": "Calcs",
       "name": "calcs",
@@ -94,7 +94,7 @@
         "Utility"
       ]
     },
-    /*{
+    {
       "slug": "Clocker",
       "name": "clocker",
       "description": "Clock generator with 4 dividers/multipliers and audio metronome",
@@ -102,7 +102,7 @@
         "Clock generator",
         "Clock modulator"
       ]
-    },*/
+    },
     {
       "slug": "Clocker2",
       "name": "clocker2",
@@ -160,7 +160,7 @@
         "Quad"
       ]
     },
-    /*{
+    {
       "slug": "DrumPlayer",
       "name": "drumPlayer",
       "description": "Drum Sample Player",
@@ -189,8 +189,7 @@
         "Drum",
         "Quad"
       ]
-    },*/
-    /*
+    },
     {
       "slug": "Enver",
       "name": "enver",
@@ -231,52 +230,15 @@
         "Quad",
         "Polyphonic"
       ]
-    },*/
-    {
-      "slug": "EnverL",
-      "name": "enver lite",
-      "description": "Envelope generator with stereo VCA",
-      "tags": [
-        "Envelope generator",
-        "Voltage-controlled amplifier"
-      ]
     },
     {
-      "slug": "HolderL",
-      "name": "holder lite",
-      "description": "Sample & Hold or Track & Hold with noise generator, probability and range",
-      "tags": [
-        "Sample and hold",
-        "Noise"
-      ]
-    },
-    {
-      "slug": "HolderCompactL",
-      "name": "holder Compact lite",
-      "description": "Sample & Hold or Track & Hold with noise generator, probability and range in a compact form factor",
-      "tags": [
-        "Sample and hold",
-        "Noise"
-      ]
-    },
-    {
-      "slug": "Holder8L",
-      "name": "holder8 lite",
-      "description": "8 Sample & Hold or Track & Hold with noise generator, probability and range",
-      "tags": [
-        "Sample and hold",
-        "Noise",
-        "Quad"
-      ]
-    },
-    /*{
       "slug": "KeySampler",
       "name": "keySampler",
       "description": "Keyboard controlled sampler",
       "tags": [
         "Sampler"
       ]
-    },*/
+    },
     {
       "slug": "Modulator",
       "name": "modulator",
@@ -302,7 +264,7 @@
         "Low-frequency oscillator"
       ]
     },
-    /*{
+    {
       "slug": "MultiSwitcher",
       "name": "multiSwitcher",
       "description": "Stereo 8>1 switch",
@@ -319,40 +281,8 @@
         "Switch",
         "Polyphonic"
       ]
-    },*/
-    {
-      "slug": "MultiSwitcherL",
-      "name": "multiSwitcher lite",
-      "description": "Stereo 8>1 switch",
-      "tags": [
-        "Switch"
-      ]
     },
     {
-      "slug": "MultiSwitcherML",
-      "name": "multiSwitcher mono lite",
-      "description": "Mono 8>1 switch",
-      "tags": [
-        "Switch"
-      ]
-    },
-    {
-      "slug": "MultiRouterL",
-      "name": "multiRouter lite",
-      "description": "Stereo 1>8 router",
-      "tags": [
-        "Switch"
-      ]
-    },
-    {
-      "slug": "MultiRouterML",
-      "name": "multiRouter mono lite",
-      "description": "Mono 1>8 router",
-      "tags": [
-        "Switch"
-      ]
-    },
-    /*{
       "slug": "Parking",
       "name": "parking",
       "description": "Set of unconnected inputs and outputs just to park unused cables",
@@ -391,14 +321,6 @@
       "tags": [
         "Utility"
       ]
-    },*/
-    {
-      "slug": "RandLoops",
-      "name": "randLoops",
-      "description": "looped random voltage sequencer inspired by Turing Machine",
-      "tags": [
-        "Sequencer"
-      ]
     },
     {
       "slug": "Shifter",
@@ -409,7 +331,6 @@
         "Utility"
       ]
     },
-    /*
     {
       "slug": "SickoAmp",
       "name": "sickoAmp",
@@ -435,32 +356,8 @@
       "tags": [
         "Mixer"
       ]
-    },*/
-    {
-      "slug": "SickoAmpL",
-      "name": "sickoAmp lite",
-      "description": "Stereo VCA up to 200% with limiter",
-      "tags": [
-        "Voltage-controlled amplifier"
-      ]
     },
-    {
-      "slug": "SickoCrosserL",
-      "name": "sickoCrosser lite",
-      "description": "multi stereo input crossfader",
-      "tags": [
-        "Mixer"
-      ]
-    },
-    {
-      "slug": "SickoCrosser4L",
-      "name": "sickoCrosser4 lite",
-      "description": "4 multi input crossfader",
-      "tags": [
-        "Mixer"
-      ]
-    },
-    {
+        {
       "slug": "SickoLooper1",
       "name": "sickoLooper1",
       "description": "1 track looper with builtin clock generator, click and meter",
@@ -477,23 +374,23 @@
         "Expander"
       ]
     },
-    /*{
+    {
       "slug": "SickoLooper3",
       "name": "sickoLooper3",
       "description": "3 track looper with builtin clock generator, click and meter",
       "tags": [
         "Sampler"
       ]
-    },*/
-    /*{
+    },
+    {
       "slug": "SickoLooper5",
       "name": "sickoLooper5",
       "description": "5 track looper with builtin clock generator, click and meter",
       "tags": [
         "Sampler"
       ]
-    },*/
-    /*{
+    },
+    {
       "slug": "SickoPlayer",
       "name": "sickoPlayer",
       "description": "Sample Player",
@@ -501,8 +398,8 @@
         "Sampler",
         "Polyphonic"
       ]
-    },*/
-    /*{
+    },
+    {
       "slug": "SickoQuant",
       "name": "sickoQuant",
       "description": "Polyphonic quantizer with scales and presets (sQuant)",
@@ -519,24 +416,8 @@
         "Quantizer",
         "Polyphonic"
       ]
-    },*/
-    {
-      "slug": "SickoQuantL",
-      "name": "sickoQuant lite",
-      "description": "Quantizer with scales and presets (sQuant)",
-      "tags": [
-        "Quantizer"
-      ]
     },
     {
-      "slug": "SickoQuant4L",
-      "name": "sickoQuant4 lite",
-      "description": "Four channels quantizer with scales and presets (sQuant4)",
-      "tags": [
-        "Quantizer"
-      ]
-    },
-    /*{
       "slug": "SickoSampler",
       "name": "sickoSampler",
       "description": "Sample Player and Recorder",
@@ -544,7 +425,7 @@
         "Sampler",
         "Polyphonic"
       ]
-    },*/
+    },
     {
       "slug": "SickoSampler2",
       "name": "sickoSampler2",
@@ -562,7 +443,7 @@
         "Sequencer"
       ]
     },
-    /*{
+    {
       "slug": "Slewer",
       "name": "slewer",
       "description": "Slew Limiter",
@@ -570,15 +451,6 @@
         "Slew limiter",
         "Low-frequency oscillator",
         "Polyphonic"
-      ]
-    },*/
-    {
-      "slug": "SlewerL",
-      "name": "slewer lite",
-      "description": "Slew Limiter",
-      "tags": [
-        "Slew limiter",
-        "Low-frequency oscillator"
       ]
     },
     {
@@ -589,14 +461,14 @@
         "Sequencer"
       ]
     },
-    /*{
+    {
       "slug": "StepSeqPlus",
       "name": "stepSeq+",
       "description": "16 step sequencer with direction and presets(ss16+)",
       "tags": [
         "Sequencer"
       ]
-    },*/
+    },
     {
       "slug": "Switcher",
       "name": "switcher",
@@ -639,28 +511,6 @@
         "Polyphonic"
       ]
     },*/
-    /*{
-      "slug": "Toggler",
-      "name": "toggler",
-      "description": "Stereo signal toggle switch router, with VCA and ASR envelope generator",
-      "tags": [
-        "Logic",
-        "Envelope generator",
-        "Voltage-controlled amplifier",
-        "Polyphonic"
-      ]
-    },*/
-    /*{
-      "slug": "TogglerMM",
-      "name": "togglerMM",
-      "description": "Stereo signal toggle switch router, with VCA and ASR envelope generator",
-      "tags": [
-        "Logic",
-        "Envelope generator",
-        "Voltage-controlled amplifier",
-        "Polyphonic"
-      ]
-    },*/
     {
       "slug": "TogglerCompact",
       "name": "toggler Compact",
@@ -679,7 +529,7 @@
       "tags": [
         "Sequencer"
       ]
-    }/*,
+    },
     {
       "slug": "TrigSeqPlus",
       "name": "trigSeq+",
@@ -696,6 +546,6 @@
         "Sampler",
         "Polyphonic"
       ]
-    }*/
+    }
   ]
 }
