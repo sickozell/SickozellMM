@@ -256,6 +256,7 @@ struct DrumPlayerXtra : Module {
 		colorBoxB[1] = 0;
 		colorBoxB[2] = 0;
 		colorBoxB[3] = 0;
+		
 		system::removeRecursively(getPatchStorageDirectory().c_str());
 		Module::onReset(e);
 	}
@@ -827,6 +828,11 @@ struct DrumPlayerXtra : Module {
 			calcBiquadLpf(20000.0, sampleRate[slot], 1);
 			playBuffer[slot][0].clear();
 			playBuffer[slot][1].clear();
+
+			// metamodule change
+			vector<float>().swap(playBuffer[slot][0]);
+			vector<float>().swap(playBuffer[slot][1]);
+
 			displayBuff[slot].clear();
 			for (unsigned int i = 0; i < tsc; i = i + c) {
 				playBuffer[slot][0].push_back(pSampleData[i]);
@@ -954,6 +960,11 @@ struct DrumPlayerXtra : Module {
 		fileFound[slot] = false;
 		playBuffer[slot][0].clear();
 		playBuffer[slot][1].clear();
+
+		// metamodule change
+		vector<float>().swap(playBuffer[slot][0]);
+		vector<float>().swap(playBuffer[slot][1]);
+			
 		displayBuff[slot].clear();
 		totalSampleC[slot] = 0;
 	}

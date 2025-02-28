@@ -117,6 +117,8 @@ struct StepSeq : Module {
 
 	void onReset(const ResetEvent &e) override {
 
+		initStart = false;
+
 		step = 0;
 
 		lights[STEP_LIGHT].setBrightness(1);
@@ -332,8 +334,6 @@ struct StepSeq : Module {
 								step--;
 							else
 								dontAdvance = false;
-
-							step--;
 
 							if (step < 0)
 								step = maxSteps - 1;
