@@ -1,8 +1,9 @@
 {
+	"MetaModuleBrandName": "Sickozell",
 	"MetaModulePluginMaintainer": "Sickozell",
 	"MetaModulePluginMaintainerEmail": "sickozell@sickozell.org",
-	"MetaModulePluginMaintainerUrl": "",
-	"MetaModuleDescription": "Sickozell for MetaModule",
+	"MetaModulePluginMaintainerUrl": "https://github.com/sickozell/SickozellMM",
+	"MetaModuleDescription": "Sickozell plugin for MetaModule",
 	"MetaModuleIncludedModules": [
 		
 		{
