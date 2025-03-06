@@ -14,7 +14,7 @@ include(${METAMODULE_SDK_DIR}/plugin.cmake)
 
 ########################################################################################
 
-project(SickoCV VERSION 0.10 DESCRIPTION "Sickozell for MetaModule" LANGUAGES C CXX ASM)
+project(SickoCV VERSION 0.11 DESCRIPTION "Sickozell for MetaModule" LANGUAGES C CXX ASM)
 
 add_library(SickoCV STATIC)
 
@@ -79,7 +79,6 @@ target_sources(SickoCV PRIVATE
     ${SOURCE_DIR}/src/SwitcherSt.cpp
     ${SOURCE_DIR}/src/TogglerCompact.cpp
     #${SOURCE_DIR}/src/Toggler.cpp
-    #${SOURCE_DIR}/src/TogglerMM.cpp
     ${SOURCE_DIR}/src/TrigSeq.cpp
     ${SOURCE_DIR}/src/TrigSeqPlus.cpp
     ${SOURCE_DIR}/src/Wavetabler.cpp

@@ -225,10 +225,6 @@
 			"slug": "TogglerCompact",
 			"name": "toggler Compact"
 		},
-		/*{
-			"slug": "Toggler",
-			"name": "toggler"
-		},*/
 		{
 			"slug": "TrigSeq",
 			"name": "trigSeq"
