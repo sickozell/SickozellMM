@@ -1,3 +1,14 @@
+### 2.7.1 (2025-03-18)
+- added randLoops module
+- added randLoops8 module
+- added trigSeq8x module
+- trigSeq trigSeq+: added Turing mode, changed RST knob behavior according to Turing mode, added Prog Input Trig Mode
+- stepSeq stepSeq+: changed range tooltips display on step knobs, fixed bug on reverse direction, added Prog Input Trig Mode
+- stepSeq+ trigSeq+: added RECL button functionality to cancel on pending program change. Fixed bug on Rack reload if it was closed during pending prog change. Improved CPU performance
+- sickoQuant sickoQuant4: added Prog Input Trig Mode. Improved CPU performance
+- improved samples memory management on sampler modules
+- added global 4ms-MetaModule compatibility
+
 ### 2.7.0 (2025-02-01)
 - added 'trigSeq+' module
 - added 'stepSeq+' module

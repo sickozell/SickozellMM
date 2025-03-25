@@ -58,6 +58,8 @@ void init(rack::Plugin *p) {
 	p->addModel(modelPolyMuter8Plus);
 	p->addModel(modelPolyMuter16);
 	p->addModel(modelPolyMuter16Plus);
+	p->addModel(modelRandLoops);
+	p->addModel(modelRandLoops8);
 	p->addModel(modelShifter);
 	p->addModel(modelSickoAmp);
 	p->addModel(modelSickoCrosser);
@@ -78,9 +80,38 @@ void init(rack::Plugin *p) {
 	p->addModel(modelSwitcher);
 	p->addModel(modelSwitcherSt);
 	p->addModel(modelSwitcher8);
-	//p->addModel(modelToggler);
 	p->addModel(modelTogglerCompact);
 	p->addModel(modelTrigSeq);
 	p->addModel(modelTrigSeqPlus);
+	p->addModel(modelTrigSeq8x);
 	p->addModel(modelWavetabler);
+
 }
+
+// -----------------------------------
+
+bool randLoops_clipboard = false;
+int randLoops_cbSeq[16] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+int randLoops_cbSteps = 16;
+float randLoops_cbCtrl = 0.f;
+float randLoops_cbScale = 1.f;
+float randLoops_cbOffset = 0.f;
+
+bool randLoops8_clipboard = false;
+int randLoops8_cbSeq[8][16] = {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+								{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+								{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+								{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+								{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+								{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+								{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+								{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
+int randLoops8_cbSteps[8] = {16,16,16,16,16,16,16,16};
+float randLoops8_cbCtrl[8] = {0,0,0,0,0,0,0,0};
+float randLoops8_cbScale[8] = {0,0,0,0,0,0,0,0};
+float randLoops8_cbOffset[8] = {0,0,0,0,0,0,0,0};
+
+bool stepSeq_clipboard = false;
+float stepSeq_cbSeq[16] = {0.5f,0.5f,0.5f,0.5f,0.5f,0.5f,0.5f,0.5f,0.5f,0.5f,0.5f,0.5f,0.5f,0.5f,0.5f,0.5f};
+int stepSeq_cbSteps = 16;
+int stepSeq_cbRst = 1;

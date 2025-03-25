@@ -1,3 +1,18 @@
+### v0.12
+added randLoops randLoops8 trigSeq8x modules
+
+### v0.11
+fixed and updated plugin-mm.json according to new firmware v2.0.0-dev-12
+
+### v0.10
+- stepSeq stepSeq+: fixed a bug when using reverse direction
+
+### v0.9
+Improved samples memory management on sickoSampler sickoSampler2 keySampler sickoLooper1 sickoLooperX sickoLooper3 sickoLooper5
+
+### v0.8
+Build for firmware v2.0.0-dev-12
+
 ### v0.7
 changed the sample limit to 23Mb (about 1 minute @ 48Khz stereo) on sampler modules to avoid running out of memory
 

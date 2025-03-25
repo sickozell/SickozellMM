@@ -143,6 +143,14 @@
 			"name": "polyMuter16+"
 		},
 		{
+			"slug": "RandLoops",
+			"name": "randLoops"
+		},
+		{
+			"slug": "RandLoops8",
+			"name": "randLoops8"
+		},
+		{
 			"slug": "Shifter",
 			"name": "shifter"
 		},
@@ -233,6 +241,10 @@
 		{
 			"slug": "TrigSeqPlus",
 			"name": "trigSeq+"
+		},
+		{
+			"slug": "TrigSeq8x",
+      		"name": "trigSeq8x"
 		},
 		{
 			"slug": "WaveTabler",

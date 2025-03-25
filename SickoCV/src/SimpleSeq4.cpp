@@ -64,6 +64,8 @@ struct SimpleSeq4 : Module {
 
 	void onReset(const ResetEvent &e) override {
 
+		initStart = false;
+
 		step = 0;
 
 		lights[KNOB_LIGHT].setBrightness(1);
@@ -281,17 +283,16 @@ struct SimpleSeq4Widget : ModuleWidget {
 				module->revType = revType;
 			}
 		};
-
-		menu->addChild(new MenuSeparator());
-		menu->addChild(createMenuLabel("Reverse Input Voltage"));
 		std::string RevTypeNames[2] = {"Positive", "Negative"};
-		for (int i = 0; i < 2; i++) {
-			RevTypeItem* revTypeItem = createMenuItem<RevTypeItem>(RevTypeNames[i]);
-			revTypeItem->rightText = CHECKMARK(module->revType == i);
-			revTypeItem->module = module;
-			revTypeItem->revType = i;
-			menu->addChild(revTypeItem);
-		}
+		menu->addChild(createSubmenuItem("Reverse Input Voltage", (RevTypeNames[module->revType]), [=](Menu * menu) {
+			for (int i = 0; i < 2; i++) {
+				RevTypeItem* revTypeItem = createMenuItem<RevTypeItem>(RevTypeNames[i]);
+				revTypeItem->rightText = CHECKMARK(module->revType == i);
+				revTypeItem->module = module;
+				revTypeItem->revType = i;
+				menu->addChild(revTypeItem);
+			}
+		}));
 
 		menu->addChild(new MenuSeparator());
 		menu->addChild(createBoolPtrMenuItem("Initialize on Start", "", &module->initStart));
