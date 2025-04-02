@@ -1,3 +1,16 @@
+### v0.13
+- build for v2.0-dev-13 firmware
+- added stepSeq8x module
+- added drumPlayerMk2 module
+- added drumPlayer mini module
+- added ad mini module
+- added enver mini module
+- added enver mini expander module
+- added randLoops mini module
+- added slewer mini module
+- trigSeq8x trigSeq trigSeq+ stepSeq stepSeq+: added "randomize steps" menu option
+- slewer: fixed a bug on attack/decay CV inputs
+
 ### v0.12
 added randLoops randLoops8 trigSeq8x modules
 

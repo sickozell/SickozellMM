@@ -8,8 +8,7 @@ extern Plugin* pluginInstance;
 
 #include "Controls.hpp"
 
-// Declare each Model, defined in each module source file
-// extern Model* modelMyModule;
+extern Model* modelAdMini;
 extern Model* modelAdder8;
 extern Model* modelBgates;
 extern Model* modelBlender;
@@ -27,9 +26,13 @@ extern Model* modelDrummer;
 extern Model* modelDrummer4;
 extern Model* modelDrummer4Plus;
 extern Model* modelDrumPlayer;
+extern Model* modelDrumPlayerMk2;
 extern Model* modelDrumPlayerPlus;
 extern Model* modelDrumPlayerXtra;
+extern Model* modelDrumPlayerMini;
 extern Model* modelEnver;
+extern Model* modelEnverMini;
+extern Model* modelEnverMiniX;
 extern Model* modelHolder;
 extern Model* modelHolderCompact;
 extern Model* modelHolder8;
@@ -45,6 +48,7 @@ extern Model* modelPolyMuter8Plus;
 extern Model* modelPolyMuter16;
 extern Model* modelPolyMuter16Plus;
 extern Model* modelRandLoops;
+extern Model* modelRandLoopsMini;
 extern Model* modelRandLoops8;
 extern Model* modelShifter;
 extern Model* modelSickoAmp;
@@ -61,8 +65,10 @@ extern Model* modelSickoSampler;
 extern Model* modelSickoSampler2;
 extern Model* modelSimpleSeq4;
 extern Model* modelSlewer;
+extern Model* modelSlewerMini;
 extern Model* modelStepSeq;
 extern Model* modelStepSeqPlus;
+extern Model* modelStepSeq8x;
 extern Model* modelSwitcher;
 extern Model* modelSwitcherSt;
 extern Model* modelSwitcher8;
@@ -93,4 +99,8 @@ extern float stepSeq_cbSeq[16];
 extern int stepSeq_cbSteps;
 extern int stepSeq_cbRst;
 
+extern bool stepSeq8_clipboard;
+extern float stepSeq8_cbSeq[8][16];
+extern int stepSeq8_cbSteps;
+extern int stepSeq8_cbRst;
 

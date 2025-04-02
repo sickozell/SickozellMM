@@ -206,7 +206,8 @@ struct Slewer : Module {
 
 			} else {
 
-				attackInValue = attackValue + (inputs[ATTACK_INPUT].getVoltage() * params[ATTACK_ATNV_PARAM].getValue() * 0.1);
+				//attackInValue = attackValue + (inputs[ATTACK_INPUT].getVoltage() * params[ATTACK_ATNV_PARAM].getValue() * 0.1);
+				attackInValue = attackValue + (inputs[ATTACK_INPUT].getVoltage() * params[ATTACK_ATNV_PARAM].getValue());
 
 				if (attackInValue < minAdsrTime)
 					attackInValue = minAdsrTime;
@@ -225,7 +226,8 @@ struct Slewer : Module {
 
 			} else {
 
-				decayInValue = decayValue + (inputs[DECAY_INPUT].getVoltage() * params[DECAY_ATNV_PARAM].getValue() * 0.1);
+				//decayInValue = decayValue + (inputs[DECAY_INPUT].getVoltage() * params[DECAY_ATNV_PARAM].getValue() * 0.1);
+				decayInValue = decayValue + (inputs[DECAY_INPUT].getVoltage() * params[DECAY_ATNV_PARAM].getValue());
 
 				if (decayInValue < minAdsrTime)
 					decayInValue = minAdsrTime;
@@ -247,7 +249,8 @@ struct Slewer : Module {
 
 			} else {
 
-				attackInValue = attackValue + (inputs[ATTACK_INPUT].getVoltage() * params[ATTACK_ATNV_PARAM].getValue() * 0.1);
+				//attackInValue = attackValue + (inputs[ATTACK_INPUT].getVoltage() * params[ATTACK_ATNV_PARAM].getValue() * 0.1);
+				attackInValue = attackValue + (inputs[ATTACK_INPUT].getVoltage() * params[ATTACK_ATNV_PARAM].getValue());
 
 				if (attackInValue < minAdsrTime)
 					attackInValue = minAdsrTime;
@@ -257,7 +260,8 @@ struct Slewer : Module {
 				
 			}
 			
-			decayKnob = params[DECAY_PARAM].getValue() + (inputs[DECAY_INPUT].getVoltage() * params[DECAY_ATNV_PARAM].getValue() * 0.1);
+			//decayKnob = params[DECAY_PARAM].getValue() + (inputs[DECAY_INPUT].getVoltage() * params[DECAY_ATNV_PARAM].getValue() * 0.1);
+			decayKnob = params[DECAY_PARAM].getValue() + (inputs[DECAY_INPUT].getVoltage() * params[DECAY_ATNV_PARAM].getValue());
 			
 			if (decayKnob < 0.001)
 				decayKnob = 0.001;

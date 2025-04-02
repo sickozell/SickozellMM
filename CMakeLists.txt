@@ -14,7 +14,7 @@ include(${METAMODULE_SDK_DIR}/plugin.cmake)
 
 ########################################################################################
 
-project(SickoCV VERSION 0.12 DESCRIPTION "Sickozell for MetaModule" LANGUAGES C CXX ASM)
+project(SickoCV VERSION 0.13 DESCRIPTION "Sickozell for MetaModule" LANGUAGES C CXX ASM)
 
 add_library(SickoCV STATIC)
 
@@ -23,6 +23,7 @@ set(SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/SickoCV)
 
 target_sources(SickoCV PRIVATE
     ${SOURCE_DIR}/src/plugin.cpp 
+    ${SOURCE_DIR}/src/AdMini.cpp
     ${SOURCE_DIR}/src/Adder8.cpp
     ${SOURCE_DIR}/src/Bgates.cpp
     ${SOURCE_DIR}/src/Blender.cpp
@@ -40,9 +41,13 @@ target_sources(SickoCV PRIVATE
     ${SOURCE_DIR}/src/Drummer4.cpp
     ${SOURCE_DIR}/src/Drummer4Plus.cpp
     ${SOURCE_DIR}/src/DrumPlayer.cpp
+    ${SOURCE_DIR}/src/DrumPlayerMk2.cpp
     ${SOURCE_DIR}/src/DrumPlayerPlus.cpp
     ${SOURCE_DIR}/src/DrumPlayerXtra.cpp
+    ${SOURCE_DIR}/src/DrumPlayerMini.cpp
     ${SOURCE_DIR}/src/Enver.cpp
+    ${SOURCE_DIR}/src/EnverMini.cpp
+    ${SOURCE_DIR}/src/EnverMiniX.cpp
     ${SOURCE_DIR}/src/Holder8.cpp
     ${SOURCE_DIR}/src/HolderCompact.cpp
     ${SOURCE_DIR}/src/Holder.cpp
@@ -58,6 +63,7 @@ target_sources(SickoCV PRIVATE
     ${SOURCE_DIR}/src/PolyMuter16.cpp
     ${SOURCE_DIR}/src/PolyMuter16Plus.cpp
     ${SOURCE_DIR}/src/RandLoops.cpp
+    ${SOURCE_DIR}/src/RandLoopsMini.cpp
     ${SOURCE_DIR}/src/RandLoops8.cpp
     ${SOURCE_DIR}/src/Shifter.cpp
     ${SOURCE_DIR}/src/SickoAmp.cpp
@@ -74,8 +80,10 @@ target_sources(SickoCV PRIVATE
     ${SOURCE_DIR}/src/SickoSampler2.cpp
     ${SOURCE_DIR}/src/SimpleSeq4.cpp
     ${SOURCE_DIR}/src/Slewer.cpp
+    ${SOURCE_DIR}/src/SlewerMini.cpp
     ${SOURCE_DIR}/src/StepSeq.cpp
     ${SOURCE_DIR}/src/StepSeqPlus.cpp
+    ${SOURCE_DIR}/src/StepSeq8x.cpp
     ${SOURCE_DIR}/src/Switcher.cpp
     ${SOURCE_DIR}/src/Switcher8.cpp
     ${SOURCE_DIR}/src/SwitcherSt.cpp

@@ -7,6 +7,10 @@
 	"MetaModuleIncludedModules": [
 		
 		{
+			"slug": "AdMini",
+			"name": "ad mini"
+		},
+		{
 			"slug": "Adder8",
 			"name": "adder8"
 		},
@@ -36,7 +40,7 @@
 		},
 		{
 			"slug": "BtogglerPlus",
-			"name": "bToggler8+",
+			"name": "bToggler8+"
 		},
 		{
 			"slug": "Calcs",
@@ -75,6 +79,14 @@
 			"name": "drumPlayer"
 		},
 		{
+			"slug": "DrumPlayerMk2",
+			"name": "drumPlayer mk2"
+		},
+		{
+			"slug": "DrumPlayerMini",
+			"name": "drumPlayer mini"
+		},
+		{
 			"slug": "DrumPlayerPlus",
 			"name": "drumPlayer+"
 		},
@@ -84,7 +96,15 @@
 		},
 		{
 			"slug": "Enver",
-			"name": "enve"
+			"name": "enver"
+		},
+	    {
+			"slug": "EnverMini",
+			"name": "enver mini"
+		  },
+		 {
+			"slug": "EnverMiniX",
+			"name": "enver mini expander"
 		},
 		{
 			"slug": "Holder",
@@ -145,6 +165,10 @@
 		{
 			"slug": "RandLoops",
 			"name": "randLoops"
+		},
+		{
+			"slug": "RandLoopsMini",
+			"name": "randLoops mini"
 		},
 		{
 			"slug": "RandLoops8",
@@ -211,12 +235,20 @@
 			"name": "slewer"
 		},
 		{
+			"slug": "SlewerMini",
+			"name": "slewer mini"
+		},
+		{
 			"slug": "StepSeq",
 			"name": "stepSeq",
 		},
 		{
 			"slug": "StepSeqPlus",
-			"name": "stepSeq+",
+			"name": "stepSeq+"
+		},
+        {
+			"slug": "StepSeq8x",
+			"name": "stepSeq8x"
 		},
 		{
 			"slug": "Switcher",
