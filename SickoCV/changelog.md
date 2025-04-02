@@ -1,5 +1,4 @@
 ### 2.7.2 (2025-04-01)
-
 - added stepSeq8x module
 - added drumPlayerMk2 module
 - added drumPlayer mini module
