@@ -1204,6 +1204,11 @@ struct SickoLooper3 : Module {
 			trackStatus[track] = IDLE;
 			setIdleLed(track);
 		} 
+
+		vector<float>(trackBuffer[track][LEFT]).swap(trackBuffer[track][LEFT]);
+		vector<float>(trackBuffer[track][RIGHT]).swap(trackBuffer[track][RIGHT]);
+		vector<float>().swap(tempBuffer[LEFT]);
+		vector<float>().swap(tempBuffer[RIGHT]);
 	};
 
 

@@ -881,6 +881,11 @@ struct SickoPlayer : Module {
 			timeDisplay = "";
 			channelsDisplay = "";
 		}
+
+		vector<float>(playBuffer[LEFT][0]).swap(playBuffer[LEFT][0]);
+		vector<float>(playBuffer[RIGHT][0]).swap(playBuffer[RIGHT][0]);
+		vector<float>(playBuffer[LEFT][1]).swap(playBuffer[LEFT][1]);
+		vector<float>(playBuffer[RIGHT][1]).swap(playBuffer[RIGHT][1]);
 	};
 
 	void saveSample(std::string path) {

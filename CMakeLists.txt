@@ -7,7 +7,7 @@ elseif (DEFINED ENV{METAMODULE_SDK_DIR})
     set(METAMODULE_SDK_DIR "$ENV{METAMODULE_SDK_DIR}")
 	message("METAMODULE_SDK_DIR set by environment variable ${METAMODULE_SDK_DIR}")
 else()
-    set(METAMODULE_SDK_DIR "${CMAKE_CURRENT_LIST_DIR}/../../metamodule/metamodule-plugin-sdk")
+    set(METAMODULE_SDK_DIR "${CMAKE_CURRENT_LIST_DIR}/../metamodule-plugin-sdk")
 	message("METAMODULE_SDK_DIR set to default: ${METAMODULE_SDK_DIR}")
 endif()
 include(${METAMODULE_SDK_DIR}/plugin.cmake)
@@ -17,6 +17,31 @@ include(${METAMODULE_SDK_DIR}/plugin.cmake)
 project(SickoCV VERSION 0.13 DESCRIPTION "Sickozell for MetaModule" LANGUAGES C CXX ASM)
 
 add_library(SickoCV STATIC)
+
+# Compiler definitions
+target_compile_definitions(SickoCV PRIVATE 
+    __V1x 
+    __PLUGIN
+    $<$<BOOL:${BUILD_VIRTUAL}>:BUILD_VIRTUAL>
+    _MB_CAPABLE=1
+)
+
+# Compiler options
+target_compile_options(SickoCV PRIVATE
+    -fpermissive
+    -fdata-sections
+    -ffunction-sections
+    -fno-exceptions
+    -fno-threadsafe-statics
+    -fno-use-cxa-atexit
+    $<$<CXX_COMPILER_ID:GNU>:-fvisibility=hidden>
+    $<$<CXX_COMPILER_ID:GNU>:-fvisibility-inlines-hidden>
+)
+
+# Linker options
+target_link_options(SickoCV PRIVATE
+    -Wl,--gc-sections
+)
 
 # Add sources from the Rack source repo
 set(SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/SickoCV)

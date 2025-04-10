@@ -718,6 +718,11 @@ struct Clocker : Module {
 			storedPath[slot] = path;
 			fileDescription[slot] = "(!)"+path;
 		}
+
+		vector<float>(playBuffer[slot]).swap(playBuffer[slot]);
+
+		vector<float>().swap(tempBuffer);
+		vector<float>().swap(tempBuffer2);
 	};
 	
 	void clearSlot(int slot) {
