@@ -621,6 +621,9 @@ struct Wavetabler : Module {
 			fileDescription = "(!)"+path;
 			fileDisplay = "";
 		}
+
+		vector<float>(playBuffer[0]).swap(playBuffer[0]);
+		vector<float>(playBuffer[1]).swap(playBuffer[1]);
 	};
 
 	void saveSample(std::string path) {

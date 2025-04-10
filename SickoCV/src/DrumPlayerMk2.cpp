@@ -582,6 +582,9 @@ struct DrumPlayerMk2 : Module {
 				path = storedPath[slot];
 			fileDescription[slot] = "(!)"+path;
 		}
+
+		vector<float>(playBuffer[slot][0]).swap(playBuffer[slot][0]);
+		vector<float>(playBuffer[slot][1]).swap(playBuffer[slot][1]);
 	};
 
 	void saveSample(std::string path, int slot) {

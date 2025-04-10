@@ -2045,6 +2045,14 @@ struct KeySampler : Module {
 			recTimeDisplay[slot] = "";
 			channelsDisplay[slot] = "";
 		}
+
+		vector<float>(playBuffer[slot][LEFT][0]).swap(playBuffer[slot][LEFT][0]);
+		vector<float>(playBuffer[slot][RIGHT][0]).swap(playBuffer[slot][RIGHT][0]);
+		vector<float>(playBuffer[slot][LEFT][1]).swap(playBuffer[slot][LEFT][1]);
+		vector<float>(playBuffer[slot][RIGHT][1]).swap(playBuffer[slot][RIGHT][1]);
+
+		vector<float>().swap(tempBuffer[LEFT]);	
+		vector<float>().swap(tempBuffer[RIGHT]);	
 	};
 	
 	void clearSlot(int slot) {
