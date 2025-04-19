@@ -1,3 +1,9 @@
+### v0.14
+- updated dr_wav library
+- adMini / enverMini : added "LVL knob -> ENV out" option in context menu
+- drumPlayerMk2 / drumPlayerMini : change accent level range to 0-200%
+- stepSeq8x / trigSeq8x: adjusted RECL and STOR buttons placement
+
 ### v0.13
 - build for v2.0-dev-13 firmware
 - added stepSeq8x module
