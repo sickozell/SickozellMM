@@ -3,7 +3,6 @@
 
 using namespace rack;
 
-// Declare the Plugin, defined in plugin.cpp
 extern Plugin* pluginInstance;
 
 #include "Controls.hpp"
@@ -72,6 +71,7 @@ extern Model* modelStepSeq8x;
 extern Model* modelSwitcher;
 extern Model* modelSwitcherSt;
 extern Model* modelSwitcher8;
+//extern Model* modelToggler;
 extern Model* modelTogglerCompact;
 extern Model* modelTrigSeq;
 extern Model* modelTrigSeqPlus;
@@ -103,4 +103,3 @@ extern bool stepSeq8_clipboard;
 extern float stepSeq8_cbSeq[8][16];
 extern int stepSeq8_cbSteps;
 extern int stepSeq8_cbRst;
-

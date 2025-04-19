@@ -1,7 +1,7 @@
-# SickoCV v2.7.1
+# SickoCV v2.7.4
 VCV Rack plugin modules
 
-![SickoCV modules 2 7 1](https://github.com/user-attachments/assets/11fec174-10a2-4982-ad85-f62c1d0f1897)
+![SickoCV modules 2 7 4](https://github.com/user-attachments/assets/d89bd63a-28d8-4ecd-8871-b763f57085b4)
 
 ## table of contents
 - [Common modules behavior](#common-modules-behavior)
@@ -16,8 +16,8 @@ VCV Rack plugin modules
 - [clocker / clocker2](#clocker--clocker2)
 - [CV router / CV switcher](#cvrouter--cvswitcher)
 - [drummer / drummer4 / drummer4+](#drummer--drummer4--drummer4)
-- [drumPlayer / drumPlayer+ / drumPlayerXtra](#drumplayer--drumplayer--drumplayerxtra)
-- [enver](#enver)
+- [drumPlayer / drumPlayer+ / drumPlayerXtra / drumPlayer mini](#drumplayer--drumplayer--drumplayerxtra--drumplayer-mini)
+- [enver / enver mini / ad mini](#enver--enver-mini--ad-mini)
 - [holder / holder Compact / holder8](#holder--holder-compact--holder8)
 - [keySampler](#keysampler)
 - [modulator / modulator7 / modulator7 Compact](#modulator--modulator7--modulator7-compact)
@@ -34,8 +34,8 @@ VCV Rack plugin modules
 - [sickoSampler](#sickosampler)
 - [sickoSampler2](#sickosampler2)
 - [simpleSeq4](#simpleseq4)
-- [slewer](#slewer)
-- [stepSeq / stepSeq+ / trigSeq / trigSeq+ / trigSeq8x](#stepSeq--stepSeq--trigSeq--trigSeq--trigSeq8x)
+- [slewer / slewer mini](#slewer--slewer-mini)
+- [stepSeq / stepSeq+ / stepSeq8x / trigSeq / trigSeq+ / trigSeq8x](#stepSeq--stepSeq--stepSeq8x--trigSeq--trigSeq--trigSeq8x)
 - [switcher / switcherSt / switcher8](#switcher--switcherst--switcher8)
 - [toggler / toggler Compact](#toggler--toggler-compact)
 - [wavetabler](#wavetabler)
@@ -396,10 +396,10 @@ Drummer4+ it's the same of Drummer4. It only adds attenuverted CV inputs to para
 
 [back to top](#table-of-contents)
 
-## drumPlayer / drumPlayer+ / drumPlayerXtra
+## drumPlayer / drumPlayer+ / drumPlayerXtra / drumPlayer mini
 ### 4 channel Drum Sample Player with accent and choke functionality
 
-![drumplayer](https://github.com/sickozell/SickoCV/assets/80784296/f7691957-dd29-48f3-b26d-7f280feb806b)
+![drumplayer](https://github.com/user-attachments/assets/e6e61c69-6c20-4750-8bc5-927d6ed4fe08)
 
 #### INSTRUCTIONS  
 Load wav samples in the slots using general or slot right-click menu.  
@@ -475,10 +475,10 @@ Right clicking on led area (drumPlayer) or display area (drumPlayer+ drumPlayerX
 
 [back to top](#table-of-contents)
 
-## enver
-### Envelope generator with stereo VCA
+## enver / enver mini / ad mini
+### Envelope/function generator with stereo VCA
 
-![enver](https://github.com/sickozell/SickoCV/assets/80784296/4e3a4dde-8415-4cc9-8904-074e93179546)
+![enver](https://github.com/user-attachments/assets/be063e58-9a2f-4fb5-a8c4-fe6538c60157)
 
 #### - INSTRUCTIONS
 the enver moodule operates with three different modes selecetd by the mode switch:
@@ -496,8 +496,21 @@ ENV out is the envelope output.
 INV out is the inverted envelope output to use for ducking purposes. The INV knob is used to set the inverting strength.  
 A D S R outputs send a 1ms trigger at the end of every single stage.  
 
-The built-in VCA section consists of a stereo audio input, a master volume knob, a volume CV input, and a stereo audio output.  
-Please note that using the volume CV input as a velocity control from an external keyboard, the volume knob has to be set to zero. 
+The built-in VCA section consists of a stereo audio input, a level knob, a level CV input, and a stereo audio output.  
+Please note that using the level CV input as a velocity control from an external keyboard, the LVL knob has to be set to zero. 
+
+#### - ENVER mini / AD mini
+
+The "enver mini" module consists in a reduced 2hp version with mono vca.  
+The "AD mini" module is a simple AD function generator with cv inputs on attack/decay and integrated vca.
+
+**Right-click menu** (mini version only)
+
+- Module Mode. Envelope (default, enver only), Function, Loop.
+- LVL knob -> ENV out.  The LVL knob also attenuates the envelope output. A green led on env output remains lit.
+- Add Expander. Adding expanders increase in/out vca signal channels to be affected by the main envelope.
+
+[back to top](#table-of-contents)
 
 ## holder / holder Compact / holder8
 ### Sample & Hold or Track & Hold with noise generator, probability and range
@@ -1101,7 +1114,7 @@ A tiny and simple 4 step sequencer. If a positive (greater than +1v) voltage is 
 
 [back to top](#table-of-contents)
 
-## slewer
+## slewer / slewer mini
 ### Slew limiter and LFO
 #### - DESCRIPTION
 - Slew limiter with precise timing
@@ -1109,7 +1122,7 @@ A tiny and simple 4 step sequencer. If a positive (greater than +1v) voltage is 
 - Symmetric shape curves
 - LFO
 
-![slewer](https://github.com/sickozell/SickoCV/assets/80784296/f83f81d5-9dba-4359-a4e2-2d3fbd712928)
+![slewer](https://github.com/user-attachments/assets/e1bb9e03-c902-499e-bd45-625b9db9ad81)
 
 #### - INSTRUCTIONS
 ATT knob with its attenuverted input sets the duration of the rise stage.  
@@ -1130,10 +1143,10 @@ When ticked, the ATT control sets both the attack and decay durations and the DE
 
 [back to top](#table-of-contents)
 
-## stepSeq / stepSeq+ / trigSeq / trigSeq+ / trigSeq8x
+## stepSeq / stepSeq+ / stepSeq8x / trigSeq / trigSeq+ / trigSeq8x
 ### 16 step/trigger sequencer with direction and presets
 
-![stepseqtrigseq](https://github.com/user-attachments/assets/fbb46ecd-aa22-4f18-a2c5-1be4721e2bc7)
+![stepseqtrigseq](https://github.com/user-attachments/assets/bcfc97a5-4682-413f-9405-9f3de8f5a9cb)
 
 #### - INSTRUCTIONS
 stepSeq and trigSeq can respectively output a voltage or a trig/gate/clock up to 16 steps.  
@@ -1153,7 +1166,6 @@ A double click on 'STOR' button saves the current sequence to the selected progr
 
 TrigSeq and TrigSeq+ have a TURING mode setting in the right-click menu. It activates the CV out calculation regarding the on steps as if it was a 'fixed' randLoops module where you can manually set the bits of the register. Please refer to randLoops instruction to see how it works.  
 In TURING mode the RST knob acts like a CV out attenuator.  
-
 
 #### RIGHT-CLICK MENU
 - **Knob Range** (stepSeq only): sets the range of the step knobs (default -10/+10v)

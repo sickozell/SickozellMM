@@ -777,6 +777,63 @@ struct SickoLooper1Exp : Module {
 		prevSampleRate = sampleRate;
 	}
 
+
+//	-----------------------------------------------------------------------------------------------
+
+	float* LoadWavFileF32(const std::string& path, uint32_t* channels, uint32_t* sampleRate, uint64_t* totalSampleCount) {
+	    drwav wav;
+	    if (!drwav_init_file(&wav, path.c_str(), nullptr)) {
+	        return nullptr;
+	    }
+
+	    if (channels) *channels = wav.channels;
+	    if (sampleRate) *sampleRate = wav.sampleRate;
+
+	    uint64_t frameCount = wav.totalPCMFrameCount;
+	    uint64_t sampleCount = frameCount * wav.channels;
+
+	    float* pSampleData = (float*)malloc((size_t)sampleCount * sizeof(float));
+	    if (!pSampleData) {
+	        drwav_uninit(&wav);
+	        return nullptr;
+	    }
+
+	    uint64_t framesRead = drwav_read_pcm_frames_f32(&wav, frameCount, pSampleData);
+	    drwav_uninit(&wav);
+
+	    if (totalSampleCount) *totalSampleCount = framesRead * wav.channels;
+
+	    return pSampleData;
+	}
+
+// -------------------------------------------------------------------------------------------------------------------------------
+
+	bool SaveWavFileF32(const std::string& path, const std::vector<float>& data, uint32_t sampleRate, uint32_t channels) {
+	    drwav_data_format format;
+	    format.container = drwav_container_riff;      // Standard WAV
+	    format.format = DR_WAVE_FORMAT_IEEE_FLOAT;    // Float 32-bit
+	    format.channels = channels;
+	    format.sampleRate = sampleRate;
+	    format.bitsPerSample = 32;
+
+	    drwav wav;
+	    if (!drwav_init_file_write(&wav, path.c_str(), &format, nullptr)) {
+	        return false;
+	    }
+
+	    drwav_uint64 framesToWrite = data.size() / channels;
+
+	    // Scrivi i frame
+	    drwav_uint64 framesWritten = drwav_write_pcm_frames(&wav, framesToWrite, data.data());
+
+	    drwav_uninit(&wav);
+
+	    return framesWritten == framesToWrite;
+	}
+
+// -------------------------------------------------------------------------------------------------------------------------------
+
+
 /*
 
 																							░██████╗░█████╗░██╗░░░██╗███████╗
@@ -830,9 +887,16 @@ struct SickoLooper1Exp : Module {
 		if (path.substr(path.size() - 4) != ".wav" and path.substr(path.size() - 4) != ".WAV")
 			path += ".wav";
 
+		/*
 		drwav *pWav = drwav_open_file_write(path.c_str(), &format);
 		drwav_write(pWav, samples, data.data());
 		drwav_close(pWav);
+		*/
+		bool ok = SaveWavFileF32(path.c_str(), data, format.sampleRate, format.channels);
+		if (!ok) {
+		    // std::cerr << "Errore durante il salvataggio WAV" << std::endl;
+		    INFO("ERROR WRITING");
+		}
 
 		data.clear();
 		
@@ -883,11 +947,15 @@ struct SickoLooper1Exp : Module {
 		//tempBuffer[1].clear();
 		vector<float> tempBuffer[2];
 
-		unsigned int c;
-		unsigned int sr;
-		drwav_uint64 tsc;
-		float* pSampleData;
-		pSampleData = drwav_open_and_read_file_f32(path.c_str(), &c, &sr, &tsc);
+		//unsigned int c;
+		//unsigned int sr;
+		//drwav_uint64 tsc;
+		uint32_t c;
+		uint32_t sr;
+		uint64_t tsc;
+		//float* pSampleData;
+		//pSampleData = drwav_open_and_read_file_f32(path.c_str(), &c, &sr, &tsc);
+		float* pSampleData = LoadWavFileF32(path.c_str(), &c, &sr, &tsc);	// new dr_wav lib
 
 		if (pSampleData != NULL && tsc > minSamplesToLoad * c) {
 
@@ -943,7 +1011,7 @@ struct SickoLooper1Exp : Module {
 				trackBuffer[LEFT].push_back(trackBuffer[LEFT][trackBuffer[LEFT].size()-2] * .5);
 				trackBuffer[RIGHT].push_back(trackBuffer[RIGHT][trackBuffer[RIGHT].size()-2] * .5);
 
-				drwav_free(pSampleData);
+//				drwav_free(pSampleData);
 
 			} else if (fileSampleRate == APP->engine->getSampleRate() * 2) {	// ***** LOAD DIRECTLY OVERSAMPLED, NO RESAMPLE *****
 				for (unsigned int i=0; i < tsc; i = i + c) {
@@ -954,7 +1022,7 @@ struct SickoLooper1Exp : Module {
 						trackBuffer[RIGHT].push_back(pSampleData[i] * 5);
 					}
 				}
-				drwav_free(pSampleData);
+//				drwav_free(pSampleData);
 
 			} else {											// ***************** RESAMPLE ****************************************
 				
@@ -968,7 +1036,7 @@ struct SickoLooper1Exp : Module {
 					tempBuffer[RIGHT].push_back(0);
 				}
 
-				drwav_free(pSampleData);
+//				drwav_free(pSampleData);
 
 				drwav_uint64 tempSampleC = tempBuffer[LEFT].size();
 				drwav_uint64 tempSamples = tempSampleC-1;					// *****   DA VERIFICARE se è -2 ********************************************
@@ -1478,6 +1546,17 @@ struct SickoLooper1Exp : Module {
 		nextStatus = NOTHING;
 	}
 
+	void addExpander( Model* model, ModuleWidget* parentModWidget, bool left = false ) {
+		Module* module = model->createModule();
+		APP->engine->addModule(module);
+		ModuleWidget* modWidget = model->createModuleWidget(module);
+		APP->scene->rack->setModulePosForce( modWidget, Vec( parentModWidget->box.pos.x + (left ? -modWidget->box.size.x : parentModWidget->box.size.x), parentModWidget->box.pos.y));
+		APP->scene->rack->addModule(modWidget);
+		history::ModuleAdd* h = new history::ModuleAdd;
+		h->name = "create "+model->name;
+		h->setModule(modWidget);
+		APP->history->push(h);
+	}
 
 //																				██████╗░██████╗░░█████╗░░█████╗░███████╗░██████╗░██████╗
 //																				██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔════╝██╔════╝
@@ -3801,6 +3880,9 @@ struct SickoLooper1ExpWidget : ModuleWidget {
 		menu->addChild(createMenuItem("Save preset", "", [=]() {module->menuSavePreset(false);}));
 		menu->addChild(createMenuItem("Save preset + loops", "", [=]() {module->menuSavePreset(true);}));
 		*/
+
+		menu->addChild(new MenuSeparator());
+		menu->addChild(createMenuItem("Add Expander", "", [=]() {module->addExpander(modelSickoLooper1Exp, this);}));
 
 	}
 };
