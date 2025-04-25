@@ -1,5 +1,5 @@
 ### v0.15
-- buil for firmware v2.0.0-rc1
+- build for firmware v2.0.0-rc1
 
 
 ### v0.14
