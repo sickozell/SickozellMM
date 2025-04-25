@@ -1,3 +1,7 @@
+### v0.15
+- buil for firmware v2.0.0-rc1
+
+
 ### v0.14
 - updated dr_wav library
 - adMini / enverMini : added "LVL knob -> ENV out" option in context menu
