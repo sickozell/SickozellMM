@@ -14,7 +14,7 @@ include(${METAMODULE_SDK_DIR}/plugin.cmake)
 
 ########################################################################################
 
-project(SickoCV VERSION 0.15 DESCRIPTION "Sickozell for MetaModule" LANGUAGES C CXX ASM)
+project(SickoCV VERSION 0.16 DESCRIPTION "Sickozell for MetaModule" LANGUAGES C CXX ASM)
 
 add_library(SickoCV STATIC)
 

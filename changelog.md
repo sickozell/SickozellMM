@@ -1,3 +1,9 @@
+### v0.16
+- all sampler modules: improved memory allocation management
+- all sample player modules: reduced memory usage to 2x oversampling size
+- slewer/slewer mini: inverted shapes on shape knob
+- sickoSampler2: fixed a bug drawing the playhead outside the module
+
 ### v0.15
 - build for firmware v2.0.0-rc1
 
