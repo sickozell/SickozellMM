@@ -927,13 +927,6 @@ struct SickoLooper3 : Module {
 					totalSampleC[track] = trackBuffer[track][LEFT].size();
 				totalSamples[track] = totalSampleC[track]-1;
 
-// begin changes by DanGreen
-				vector<float>().swap(tempBuffer[LEFT]);
-				vector<float>().swap(tempBuffer[RIGHT]);
-				tempBuffer[LEFT].reserve(0);
-				tempBuffer[RIGHT].reserve(0);
-// end changes by DanGreen
-
 			}
 		}
 
@@ -1311,13 +1304,6 @@ struct SickoLooper3 : Module {
 				}
 				totalSampleC[track] = trackBuffer[track][LEFT].size();
 				totalSamples[track] = totalSampleC[track]-1;
-
-// begin changes by DanGreen
-				vector<float>().swap(tempBuffer[LEFT]);
-				vector<float>().swap(tempBuffer[RIGHT]);
-				tempBuffer[LEFT].reserve(0);
-				tempBuffer[RIGHT].reserve(0);
-// end changes by DanGreen
 
 			}
 
@@ -1969,8 +1955,6 @@ struct SickoLooper3 : Module {
 //			clickTempBuffer2.clear();
 			vector<float>().swap(clickTempBuffer);
 			vector<float>().swap(clickTempBuffer2);
-			clickTempBuffer.reserve(0);
-			clickTempBuffer2.reserve(0);
 // end changes by DanGreen
 
 			char* pathDup = strdup(path.c_str());
@@ -2009,7 +1993,6 @@ struct SickoLooper3 : Module {
 // begin changes by DanGreen
 			//clickPlayBuffer[slot].clear();
 			vector<float>().swap(clickPlayBuffer[slot]);
-			clickPlayBuffer[slot].reserve(0);
 // end changes by DanGreen
 		}
 	}
@@ -2558,9 +2541,7 @@ struct SickoLooper3 : Module {
 //					trackBuffer[LEFT].resize(0);
 //					trackBuffer[RIGHT].resize(0);
 		 			vector<float>().swap(trackBuffer[track][LEFT]);
-		 			trackBuffer[track][LEFT].reserve(0);
 		 			vector<float>().swap(trackBuffer[track][RIGHT]);
-		 			trackBuffer[track][RIGHT].reserve(0);
 // end changes by DanGreen
 
 					totalSamples[track] = 0;
