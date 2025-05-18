@@ -879,7 +879,7 @@ struct SickoLooper3 : Module {
 					floorCurrResamplePos = floor(currResamplePos);
 				}
 
-				while ( floorCurrResamplePos < tempSampleC ) {
+				while ( floorCurrResamplePos < tempSamples ) {
 					temp = tempBuffer[LEFT][floorCurrResamplePos]* (1-(currResamplePos - floorCurrResamplePos)) + 
 								tempBuffer[LEFT][floorCurrResamplePos+1]*(currResamplePos - floorCurrResamplePos);
 					trackBuffer[track][LEFT].push_back(temp);
@@ -1268,7 +1268,7 @@ struct SickoLooper3 : Module {
 					floorCurrResamplePos = floor(currResamplePos);
 				}
 
-				while ( floorCurrResamplePos < double(tempSampleC) ) {
+				while ( floorCurrResamplePos < tempSamples ) {
 					temp = tempBuffer[LEFT][floorCurrResamplePos]* (1-(currResamplePos - floorCurrResamplePos)) + 
 								tempBuffer[LEFT][floorCurrResamplePos+1]*(currResamplePos - floorCurrResamplePos);
 					trackBuffer[track][LEFT].push_back(temp);
@@ -4384,8 +4384,8 @@ struct SickoLooper3 : Module {
 				case OVERDUBBING:
 
 					if (samplePos[track] >= trackBuffer[track][LEFT].size()) {
-						trackBuffer[track][LEFT].push_back(0.f);
-						trackBuffer[track][RIGHT].push_back(0.f);
+						trackBuffer[track][LEFT].resize(samplePos[track] + 1, 0.f);
+						trackBuffer[track][RIGHT].resize(samplePos[track] + 1, 0.f);
 					}
 
 					if (samplePos[track] >= 0) {
@@ -4481,9 +4481,9 @@ struct SickoLooper3 : Module {
 					extraRecording[track] = false;
 
 				} else {
-					if (extraRecPos[track] >= trackBuffer[track][LEFT].size()) {
-						trackBuffer[track][LEFT].push_back(0.f);
-						trackBuffer[track][RIGHT].push_back(0.f);
+					if ((extraRecPos[track]) >= trackBuffer[track][LEFT].size()) {
+						trackBuffer[track][LEFT].resize(extraRecPos[track] + 1, 0.f);
+						trackBuffer[track][RIGHT].resize(extraRecPos[track] + 1, 0.f);
 					}
 
 					if (recFade[track]) {
