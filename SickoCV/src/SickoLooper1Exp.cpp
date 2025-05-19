@@ -705,7 +705,7 @@ struct SickoLooper1Exp : Module {
 // end changes by DanGreen	
 
 				double currResamplePos = 0;
-				double floorCurrResamplePos = 0;
+				int floorCurrResamplePos = 0;
 
 				trackBuffer[LEFT].push_back(tempBuffer[LEFT][0]);
 				trackBuffer[RIGHT].push_back(tempBuffer[RIGHT][0]);
@@ -792,13 +792,6 @@ struct SickoLooper1Exp : Module {
 				else
 					totalSampleC = trackBuffer[LEFT].size();
 				totalSamples = totalSampleC-1;
-
-// begin changes by DanGreen
-				vector<float>().swap(tempBuffer[LEFT]);
-				vector<float>().swap(tempBuffer[RIGHT]);
-				tempBuffer[LEFT].reserve(0);
-				tempBuffer[RIGHT].reserve(0);
-// end changes by DanGreen
 			}
 		}
 		prevSampleRate = sampleRate;
@@ -1196,12 +1189,6 @@ struct SickoLooper1Exp : Module {
 				totalSamples = totalSampleC-1;
 				//	******************************************************************** fine dell'eventuale salto di un passaggio
 
-// begin changes by DanGreen
-				vector<float>().swap(tempBuffer[LEFT]);
-				vector<float>().swap(tempBuffer[RIGHT]);
-				tempBuffer[LEFT].reserve(0);
-				tempBuffer[RIGHT].reserve(0);
-// end changes by DanGreen
 
 			}
 
@@ -1938,12 +1925,8 @@ struct SickoLooper1Exp : Module {
 				eraseWait = false;
 
 // begin changes by DanGreen
-//				trackBuffer[LEFT].resize(0);
-//				trackBuffer[RIGHT].resize(0);
 	 			vector<float>().swap(trackBuffer[LEFT]);
-	 			trackBuffer[LEFT].reserve(0);
 	 			vector<float>().swap(trackBuffer[RIGHT]);
-	 			trackBuffer[RIGHT].reserve(0);
 // end changes by DanGreen
 
 				totalSamples = 0;
@@ -3150,7 +3133,7 @@ struct SickoLooper1Exp : Module {
 				if (xFadeValue < 0) {
 					extraPlaying = false;
 				} else {
-					if (extraPlayPos >= 0 && extraPlayPos < trackBuffer[LEFT].size()) {
+					if (floor(extraPlayPos) >= 1 && (floor(extraPlayPos) + 2) < trackBuffer[LEFT].size()) {
 						currentOutput[LEFT] *= 1-xFadeValue;
 						currentOutput[RIGHT] *= 1-xFadeValue;
 						
@@ -3181,8 +3164,7 @@ struct SickoLooper1Exp : Module {
 				}
 			} else {	// if it's playing full tail, only if direction is FORWARD
 
-				if (extraPlayPos < tailEnd - minTimeSamplesOvs) {
-
+				if (extraPlayPos < tailEnd - minTimeSamplesOvs && floor(extraPlayPos) >= 1 && floor(extraPlayPos)+2 < trackBuffer[LEFT].size()) {
 					/*
 					currentOutput[LEFT] += trackBuffer[LEFT][extraPlayPos];
 					currentOutput[RIGHT] += trackBuffer[RIGHT][extraPlayPos];
@@ -3205,7 +3187,7 @@ struct SickoLooper1Exp : Module {
 						fadeTail = true;
 						fadeTailValue = 1;
 					}
-					if (extraPlayPos < tailEnd) {
+					if (extraPlayPos < tailEnd && floor(extraPlayPos) >= 1 && floor(extraPlayPos)+2 < trackBuffer[LEFT].size()) {
 						fadeTailValue -= fadeTailDelta;
 						//currentOutput[LEFT] += trackBuffer[LEFT][extraPlayPos] * fadeTailValue;
 						//currentOutput[RIGHT] += trackBuffer[RIGHT][extraPlayPos] * fadeTailValue;
@@ -3239,11 +3221,9 @@ struct SickoLooper1Exp : Module {
 				extraRecording = false;
 
 			} else {
-				if (extraRecPos >= trackBuffer[LEFT].size()) {
-					trackBuffer[LEFT].push_back(0.f);
-					trackBuffer[LEFT].push_back(0.f);
-					trackBuffer[RIGHT].push_back(0.f);
-					trackBuffer[RIGHT].push_back(0.f);
+				if ((extraRecPos + 2) >= trackBuffer[LEFT].size()) {
+					trackBuffer[LEFT].resize(extraRecPos + 3, 0.f);
+					trackBuffer[RIGHT].resize(extraRecPos + 3, 0.f);
 				}
 
 				if (recFade) {
@@ -3281,7 +3261,10 @@ struct SickoLooper1Exp : Module {
 				} else {
 					trackBuffer[LEFT][extraRecPos+1] = (trackBuffer[LEFT][extraRecPos+2] + trackBuffer[LEFT][extraRecPos]) / 2;
 					trackBuffer[RIGHT][extraRecPos+1] = (trackBuffer[RIGHT][extraRecPos+2] + trackBuffer[RIGHT][extraRecPos]) / 2;
-					extraRecPos -= sampleCoeff;
+					if (extraRecPos >= sampleCoeff)
+						extraRecPos -= sampleCoeff;
+					else
+						extraRecPos = 0;
 				}
 			}
 		}
