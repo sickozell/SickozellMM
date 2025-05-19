@@ -913,7 +913,7 @@ struct SickoLooper5 : Module {
 					floorCurrResamplePos = floor(currResamplePos);
 				}
 
-				while ( floorCurrResamplePos < tempSampleC ) {
+				while ( floorCurrResamplePos < tempSamples ) {
 					temp = tempBuffer[LEFT][floorCurrResamplePos]* (1-(currResamplePos - floorCurrResamplePos)) + 
 								tempBuffer[LEFT][floorCurrResamplePos+1]*(currResamplePos - floorCurrResamplePos);
 					trackBuffer[track][LEFT].push_back(temp);
@@ -960,13 +960,6 @@ struct SickoLooper5 : Module {
 				else
 					totalSampleC[track] = trackBuffer[track][LEFT].size();
 				totalSamples[track] = totalSampleC[track]-1;
-
-// begin changes by DanGreen
-				vector<float>().swap(tempBuffer[LEFT]);
-				vector<float>().swap(tempBuffer[RIGHT]);
-				tempBuffer[LEFT].reserve(0);
-				tempBuffer[RIGHT].reserve(0);
-// end changes by DanGreen
 
 			}
 		}
@@ -1296,7 +1289,7 @@ struct SickoLooper5 : Module {
 					floorCurrResamplePos = floor(currResamplePos);
 				}
 
-				while ( floorCurrResamplePos < double(tempSampleC) ) {
+				while ( floorCurrResamplePos < tempSamples ) {
 					temp = tempBuffer[LEFT][floorCurrResamplePos]* (1-(currResamplePos - floorCurrResamplePos)) + 
 								tempBuffer[LEFT][floorCurrResamplePos+1]*(currResamplePos - floorCurrResamplePos);
 					trackBuffer[track][LEFT].push_back(temp);
@@ -1339,14 +1332,6 @@ struct SickoLooper5 : Module {
 				}
 				totalSampleC[track] = trackBuffer[track][LEFT].size();
 				totalSamples[track] = totalSampleC[track]-1;
-
-// begin changes by DanGreen
-				vector<float>().swap(tempBuffer[LEFT]);
-				vector<float>().swap(tempBuffer[RIGHT]);
-				tempBuffer[LEFT].reserve(0);
-				tempBuffer[RIGHT].reserve(0);
-// end changes by DanGreen
-
 			}
 
 			if (extraSamples[track])
@@ -2098,8 +2083,6 @@ struct SickoLooper5 : Module {
 //			clickTempBuffer2.clear();
 			vector<float>().swap(clickTempBuffer);
 			vector<float>().swap(clickTempBuffer2);
-			clickTempBuffer.reserve(0);
-			clickTempBuffer2.reserve(0);
 // end changes by DanGreen
 
 			char* pathDup = strdup(path.c_str());
@@ -2138,7 +2121,6 @@ struct SickoLooper5 : Module {
 // begin changes by DanGreen
 			//clickPlayBuffer[slot].clear();
 			vector<float>().swap(clickPlayBuffer[slot]);
-			clickPlayBuffer[slot].reserve(0);
 // end changes by DanGreen
 		}
 	}
@@ -2686,9 +2668,7 @@ struct SickoLooper5 : Module {
 //					trackBuffer[LEFT].resize(0);
 //					trackBuffer[RIGHT].resize(0);
 		 			vector<float>().swap(trackBuffer[track][LEFT]);
-		 			trackBuffer[track][LEFT].reserve(0);
 		 			vector<float>().swap(trackBuffer[track][RIGHT]);
-		 			trackBuffer[track][RIGHT].reserve(0);
 // end changes by DanGreen
 
 					totalSamples[track] = 0;
@@ -4512,8 +4492,8 @@ struct SickoLooper5 : Module {
 				case OVERDUBBING:
 
 					if (samplePos[track] >= trackBuffer[track][LEFT].size()) {
-						trackBuffer[track][LEFT].push_back(0.f);
-						trackBuffer[track][RIGHT].push_back(0.f);
+						trackBuffer[track][LEFT].resize(samplePos[track] + 1, 0.f);
+						trackBuffer[track][RIGHT].resize(samplePos[track] + 1, 0.f);
 					}
 
 					if (samplePos[track] >= 0) {
@@ -4609,8 +4589,8 @@ struct SickoLooper5 : Module {
 
 				} else {
 					if (extraRecPos[track] >= trackBuffer[track][LEFT].size()) {
-						trackBuffer[track][LEFT].push_back(0.f);
-						trackBuffer[track][RIGHT].push_back(0.f);
+						trackBuffer[track][LEFT].resize(extraRecPos[track] + 1, 0.f);
+						trackBuffer[track][RIGHT].resize(extraRecPos[track] + 1, 0.f);
 					}
 
 					if (recFade[track]) {
