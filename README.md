@@ -5,7 +5,7 @@ SickozellMM is a 4ms metamodule port of SickoCV plugin for VCV rack.
 It is built to work with metamodule firmware v2.0.0
 
 ## Notes on sample players/recorders
-On all sampler modules the size limit of samples is set to 5,760,000 samples, i.e.: 2 mins @ 48khz/mono or 1 min @48khz/stereo and equivalents with other samplerates.
+On all sampler modules working on MM the size limit of samples is set to 5,760,000 samples, i.e.: 2 mins @ 48khz/mono or 1 min @48khz/stereo and equivalents with other samplerates.
 
 ### Memory usage:
 Memory usage estimate is different between different modules, remember that all samples are stored in memory in float32 with 2x oversample.  
