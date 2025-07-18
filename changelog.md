@@ -1,3 +1,6 @@
+### v0.19
+- update to v2.7.4 vcv release
+
 ### v0.18
 - fixed some general bugs for MM
 
