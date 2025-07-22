@@ -633,6 +633,17 @@
       ]
     },
     {
+      "slug": "Toggler",
+      "name": "toggler",
+      "description": "Stereo signal toggle switch router, with VCA and ASR envelope generator",
+      "tags": [
+        "Logic",
+        "Envelope generator",
+        "Voltage-controlled amplifier",
+        "Polyphonic"
+      ]
+    },
+    {
       "slug": "TogglerCompact",
       "name": "toggler Compact",
       "description": "Stereo signal toggle switch router, with VCA and ASR envelope generator, in a compact form factor",

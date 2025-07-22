@@ -92,6 +92,7 @@ target_sources(SickoCV PRIVATE
     ${SOURCE_DIR}/src/Switcher.cpp
     ${SOURCE_DIR}/src/Switcher8.cpp
     ${SOURCE_DIR}/src/SwitcherSt.cpp
+    ${SOURCE_DIR}/src/Toggler.cpp
     ${SOURCE_DIR}/src/TogglerCompact.cpp
     ${SOURCE_DIR}/src/TrigSeq.cpp
     ${SOURCE_DIR}/src/TrigSeqPlus.cpp

@@ -283,6 +283,10 @@
 			"name": "switcher8"
 		},
 		{
+			"slug": "Toggler",
+			"name": "toggler"
+		},
+		{
 			"slug": "TogglerCompact",
 			"name": "toggler Compact"
 		},
