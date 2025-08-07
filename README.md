@@ -1,4 +1,4 @@
-# SickoCV v2.7.6-beta2
+# SickoCV v2.7.6-beta4
 VCV Rack plugin modules (BETA TEST AREA)  
 Compile or **download binary for ANY platform** on the releases page  
 
@@ -21,6 +21,7 @@ Please check your subscription on https://library.vcvrack.com/plugins and look f
 - stepStation: fixed bug that doesn't store range knob settings in programs. Fixed missing range knob settings copy/paste.
 - drumPlayer2 / drumPlayerMini: added level knob control option
 - drumPlayer: fixed output level too hot in all drumPlayer modules
+- all sampler modules: fixed bug when setting tune knob to -12 semitones
 
 # SickoCV v2.7.6
 VCV Rack plugin modules
@@ -1288,11 +1289,12 @@ Plus versions only:
 #### - MANUALS
 Due to the complexity of these modules, a PDF user manual has been written
 
-![stepStation](https://github.com/user-attachments/assets/f1383ba1-7600-4458-9605-8657d57906c0)
+[ENGLISH user manual](docs/trigStation-stepStation_user_manual_EN.pdf)
 
-![trigStation](https://github.com/user-attachments/assets/0c4d9988-4dc3-4d43-9d2e-dcc595c9952f)
+[manuale utente ITALIANO](docs/trigStation-stepStation_manuale_utente_IT.pdf)
 
 If errors occurs during download please right-click on the link above and "Save Link As"
+
 
 [back to top](#table-of-contents)
 
