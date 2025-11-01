@@ -1,3 +1,6 @@
+### v0.22
+- fixed bug on drumPlayerXtra crashing when loading samples
+
 ### v0.21
 - update to v2.7.7 vcv release
 

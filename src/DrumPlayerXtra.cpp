@@ -682,8 +682,13 @@ struct DrumPlayerXtra : Module {
 				div = 8;
 			break;
 		}
+
 		for (int i = 0; i < floor(totalSampleC[slot]/div); i = i + floor(totalSampleC[slot]/div/displaySize))
+#if defined(METAMODULE)
+			displayBuff[slot].push_back(playBuffer[slot][1][i]);
+#else
 			displayBuff[slot].push_back(playBuffer[slot][0][i]);
+#endif
 	}
 
 	void swapSlot(int slot1, int slot2) {
@@ -2760,6 +2765,7 @@ struct DrumPlayerXtraDisplay : TransparentWidget {
 						Rect b = Rect(Vec(slotXpos[slot], 13), Vec(59, 30));
 						nvgScissor(args.vg, b.pos.x, b.pos.y, b.size.x, b.size.y);
 						nvgBeginPath(args.vg);
+						
 						for (unsigned int i = 0; i < module->displayBuff[slot].size(); i++) {
 							float x, y;
 							x = (float)i / (module->displayBuff[slot].size() - 1);
@@ -2773,6 +2779,7 @@ struct DrumPlayerXtraDisplay : TransparentWidget {
 							else
 								nvgLineTo(args.vg, p.x, p.y);
 						}
+								
 						nvgLineCap(args.vg, NVG_ROUND);
 						nvgMiterLimit(args.vg, 2.0);
 						nvgStrokeWidth(args.vg, 1.5);
@@ -2780,6 +2787,7 @@ struct DrumPlayerXtraDisplay : TransparentWidget {
 						nvgStroke(args.vg);			
 						nvgResetScissor(args.vg);
 						nvgRestore(args.vg);	
+						
 					}
 
 					// lightbox management
